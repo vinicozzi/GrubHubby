@@ -11,21 +11,21 @@ class ApplicationController < ActionController::API
 
     helper_method :current_user, :logged_in?, :require_logged_in
 
-    def test
-        if params.has_key?(:login)
-            user = User.find_by(email: 'demo@user.io')
-          login!(user)
-        elsif params.has_key?(:logout)
-          logout!
-        end
+    # def test
+    #     if params.has_key?(:login)
+    #         user = User.find_by(email: 'demo@user.io')
+    #       login!(user)
+    #     elsif params.has_key?(:logout)
+    #       logout!
+    #     end
       
-        if current_user
-          render json: { user: current_user.slice('id', 'email', 'session_token') }
-        else
-          render json: ['No current user']
-        end
+    #     if current_user
+    #       render json: { user: current_user.slice('id', 'email', 'session_token') }
+    #     else
+    #       render json: ['No current user']
+    #     end
     
-    end
+    # end
 
     def current_user
         @current_user ||= User.find_by(session_token: session[:session_token])

@@ -39,5 +39,20 @@ ApplicationRecord.transaction do
     end
   
     puts "Done!"
+
+    10.times do
+      restaurant = Restaurant.create(
+        name: Faker::Restaurant.name,
+        address: Faker::Address.full_address,
+        description: Faker::Lorem.paragraph,
+        hours: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now).strftime('%I:%M %p'),
+        rating: Faker::Number.decimal(l_digits: 1, r_digits: 1),
+        review_count: Faker::Number.between(from: 10, to: 100),
+        pricing_rating: Faker::Number.between(from: 1, to: 5),
+      )
+    
+      puts "Created restaurant: #{restaurant.name}"
+    end
+    
   end
   

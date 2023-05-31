@@ -6,7 +6,8 @@ import {Provider} from 'react-redux';
 import {BrowserRouter} from 'react-router-dom';
 import configureStore from './store';
 import csrfFetch, { restoreCSRF } from './store/csrf';
-import * as sessionActions from './store/session'
+import * as sessionActions from './store/session';
+import * as restaurantActions from './store/restaurants';
 
 
 const store = configureStore();
@@ -15,6 +16,7 @@ if (process.env.NODE_ENV !== "production") {
   window.store = store 
   window.csrfFetch= csrfFetch;
   window.sessionActions = sessionActions;
+  window.restaurantActions = restaurantActions;
 } 
 
 const renderApplication = () => {

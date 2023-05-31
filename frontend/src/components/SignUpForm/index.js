@@ -11,26 +11,24 @@ function SignUpForm()
     const dispatch = useDispatch()
     const sessionUser = useSelector(state => state.session.user)
 
-    const [first_name, setFirstName] = useState("")
-    const [last_name, setLastName] = useState("")
+    const [firstName, setFirstName] = useState("")
+    const [lastName, setLastName] = useState("")
     const [address, setAddress] = useState("")
     const [email, setEmail] = useState("")
-    const [phone_number, setPhoneNumber] = useState("")
+    const [phoneNumber, setPhoneNumber] = useState("")
     const [password, setPassword] = useState("")
     const [confirmPassword, setConfirmPassword] = useState("")
     const [errors, setErrors] = useState([])
 
     if (sessionUser) return <Redirect to="/"/>;
 
-    const handleSubmit = (e) => {
-
+    const handleSubmit = async (e) => {
         e.preventDefault()
-
+        setErrors([])
     if (password === confirmPassword) {
 
-        setErrors([])
-
-        return dispatch(sessionActions.signup({first_name, last_name, address, email, phone_number, password}))
+        // setErrors([])
+        await dispatch(sessionActions.signup({firstName, lastName, address, email, phoneNumber, password}))
 
         .catch (async (res) => {
             let data;
@@ -46,9 +44,12 @@ function SignUpForm()
             else if (data) setErrors([data])
             else setErrors([res.statusText])
         }) 
-    }
+    } else {
+        // setErrors([...errors, 'Passwords do not match']); }
+        setErrors((prevErrors) => [...prevErrors, 'Passwords do not match']); }
 
     }
+
 
     return (
         <>
@@ -69,7 +70,7 @@ function SignUpForm()
             <input
 
             type='text'
-            value = {first_name}
+            value = {firstName}
             onChange = {(e) => setFirstName(e.target.value)}
             required
             />
@@ -81,7 +82,7 @@ function SignUpForm()
             <input
 
             type='text'
-            value = {last_name}
+            value = {lastName}
             onChange = {(e) => setLastName(e.target.value)}
             required
             />
@@ -117,7 +118,7 @@ function SignUpForm()
         <input
 
         type="text"
-        value= {phone_number}
+        value= {phoneNumber}
         onChange ={(e) => setPhoneNumber(e.target.value)}
         />
         </label>

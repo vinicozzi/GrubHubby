@@ -38,8 +38,8 @@ const removeCurrentUser = (user) => ({
 
   export const signup = (user) => async (dispatch) => {
     console.log("Starting signup...");
-    const { first_name, last_name, address, email, phone_number, password } = user;
-    console.log("User data:", { first_name, last_name, address, email, phone_number, password });
+    const { firstName, lastName, address, email, phoneNumber, password } = user;
+    console.log("User data:", { firstName, lastName, address, email, phoneNumber, password });
     
     try {
       const response = await csrfFetch("api/users", {

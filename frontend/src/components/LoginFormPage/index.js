@@ -41,15 +41,17 @@ const handleSubmit = (e) => {
     }
 
 return (
-    <>
+
 <div className="login-form">
 <form onSubmit={handleSubmit}>
+{errors.length > 0 && (
 
-<ul>
-
-{errors.map(error => <li key={error}>{error}</li>)}
-
-</ul>
+<ul className="error-message">
+            {errors.map((error, index) => (
+              <li key={index}>{error}</li>
+            ))}
+          </ul>
+    )}
 
 <label>
 
@@ -75,7 +77,7 @@ required
 <button type='submit'>Log in</button>
 </form>
 </div>
-</>
+
 );
 
 };
