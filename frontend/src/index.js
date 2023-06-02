@@ -10,6 +10,7 @@ import * as sessionActions from './store/session';
 import * as restaurantActions from './store/restaurants';
 
 
+
 const store = configureStore();
 
 if (process.env.NODE_ENV !== "production") {
@@ -17,6 +18,7 @@ if (process.env.NODE_ENV !== "production") {
   window.csrfFetch= csrfFetch;
   window.sessionActions = sessionActions;
   window.restaurantActions = restaurantActions;
+
 } 
 
 const renderApplication = () => {

@@ -7,7 +7,9 @@ class Api::RestaurantsController < ApplicationController
 
     def show
         @restaurant = Restaurant.find(params[:id])
+        @menu_items = @restaurant.menu_items
         render :show
+       
     end
 
     # def create
@@ -25,7 +27,9 @@ class Api::RestaurantsController < ApplicationController
                 :hours,
                 :review_count,
                 :pricing_rating,
-                :menu_id,
+                :img_url,
+                :lat, 
+                :lng
             )
     end
 

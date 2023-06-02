@@ -10,9 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_30_180829) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_02_153724) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "menu_items", force: :cascade do |t|
+    t.string "item_name", null: false
+    t.decimal "item_price", null: false
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "restaurant_id"
+    t.string "img_url"
+  end
+
+  create_table "menus", force: :cascade do |t|
+    t.integer "restaurant_id", null: false
+    t.string "restaurant_name", null: false
+    t.text "description", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["restaurant_id"], name: "index_menus_on_restaurant_id"
+  end
 
   create_table "restaurants", force: :cascade do |t|
     t.string "name", null: false
@@ -22,11 +41,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_30_180829) do
     t.decimal "rating", null: false
     t.integer "review_count", null: false
     t.string "pricing_rating"
-    t.integer "menu_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "img_url"
+    t.float "lat"
+    t.float "lng"
     t.index ["address"], name: "index_restaurants_on_address"
-    t.index ["menu_id"], name: "index_restaurants_on_menu_id"
     t.index ["name"], name: "index_restaurants_on_name"
   end
 
@@ -47,4 +67,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_30_180829) do
     t.index ["session_token"], name: "index_users_on_session_token", unique: true
   end
 
+  add_foreign_key "menu_items", "restaurants"
 end

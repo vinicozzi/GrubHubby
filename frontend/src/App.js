@@ -2,9 +2,11 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import LoginFormPage from './components/LoginFormPage';
 import SignUpForm from './components/SignUpForm';
-import Navigation from './components/Navigation';
+// import Navigation from './components/Navigation';
 import SplashPage from './components/SplashPage';
-import RestaurantList from './components/Restaurant/restaurantList';
+import Restaurants from './components/Restaurant/restaurantList';
+// import MenuDisplay from './components/Menu/';
+import RestaurantMenu from './components/Menu/index';
 
 function App() {
   return (
@@ -21,9 +23,22 @@ function App() {
       <Route path="/signup">
         <SignUpForm />
       </Route>
+      {/* <Route exact path="/main" />
+          <MainPage />
+      <Route /> */}
+      <Route exact path="/restaurants">
+          <Restaurants/>
+      </Route>
+      <Route exact path="/restaurants/:id">
+          <RestaurantMenu />
+      </Route>
+      {/* </Route>
       <Route path="/restaurants">
         <RestaurantList />
       </Route>
+      <Route path="/restaurants/:restaurantId/menu/:menuId">
+          <MenuDisplay />
+        </Route> */}
     </Switch>
     </>
   );

@@ -2,12 +2,13 @@ import React from 'react';
 import {useState, useSelector} from 'react-redux'
 import {NavLink} from 'react-router-dom'
 import ProfileButton from "./ProfileButton"
+import { useParams } from "react-router-dom";
 import "./navbar.css"
 
 function Navigation() {
 
 const sessionUser = useSelector(state => state.session.user)
-
+const {restaurantId} = useParams();
 let sessionLinks
 
 if (sessionUser) {

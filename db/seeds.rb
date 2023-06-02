@@ -10,11 +10,15 @@ ApplicationRecord.transaction do
     puts "Destroying tables..."
     # Unnecessary if using `rails db:seed:replant`
     User.destroy_all
-  
+    MenuItem.destroy_all
+    Restaurant.destroy_all
+    
     puts "Resetting primary keys..."
     # For easy testing, so that after seeding, the first `User` has `id` of 1
     ApplicationRecord.connection.reset_pk_sequence!('users')
-  
+    ApplicationRecord.connection.reset_pk_sequence!('menu_items')
+    ApplicationRecord.connection.reset_pk_sequence!('restaurants')
+
     puts "Creating users..."
     # Create one user with an easy to remember username, email, and password:
     User.create!(
@@ -52,7 +56,18 @@ ApplicationRecord.transaction do
       )
     
       puts "Created restaurant: #{restaurant.name}"
+    
+      3.times do
+        menu_item = restaurant.menu_items.create!(
+          item_name: Faker::Food.dish,
+          item_price: Faker::Commerce.price(range: 5.0..20.0),
+          description: Faker::Lorem.paragraph
+        )
+    
+        puts "Created menu item: #{menu_item.item_name} for restaurant: #{restaurant.name}"
+      end
     end
     
-  end
-  
+    puts "Menu, Menu, Menu... AND MORE!"
+
+  end 

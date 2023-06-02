@@ -1,5 +1,6 @@
 @restaurants.each do |restaurant|
     json.set! restaurant.id.to_s do
+      json.id restaurant.id 
       json.name restaurant.name
       json.address restaurant.address
       json.description restaurant.description

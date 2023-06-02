@@ -10,22 +10,21 @@
 #  rating         :decimal(, )      not null
 #  review_count   :integer          not null
 #  pricing_rating :string
-#  menu_id        :integer
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
+#  img_url        :string
+#  lat            :float
+#  lng            :float
 #
 class Restaurant < ApplicationRecord
 
     validates :name, :description, :address, :hours, :rating, :review_count, presence: true 
 
-    has_many :menu_items,
-    primary_key: :id,
-    foreign_key: :restaurant_id,
-    class_name: :MenuItem
+    has_many :menu_items, dependent: :destroy
 
-    has_many :reviews,
-    primary_key: :id,
-    foreign_key: :restaurant_id,
-    class_name: :Review
+    # has_many :reviews,
+    # primary_key: :id,
+    # foreign_key: :restaurant_id,
+    # class_name: :Review
 
 end

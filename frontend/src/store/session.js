@@ -70,7 +70,6 @@ const removeCurrentUser = (user) => ({
     console.log("Login credentials:", { credential, password });
   
     try {
-        debugger 
       const response = await csrfFetch("/api/session", {
         method: "POST",
         body: JSON.stringify({ credential, password }),
@@ -92,22 +91,6 @@ const removeCurrentUser = (user) => ({
       throw error;
     }
   };
-
-
-    // export const logout = (user) => async dispatch => {
-
-    // const response = await csrfFetch('api/session', {
-
-    //     method: "DELETE"
-
-    // })
-
-    // const data = await response.json()
-    // storeCurrentUser(data.user)
-    // dispatch(removeCurrentUser(data.user))
-    // return response;
-
-    // }
 
     export const logout = () => async (dispatch) => {
         const response = await csrfFetch("/api/session", {
