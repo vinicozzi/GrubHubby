@@ -1,0 +1,30 @@
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 100px; 
+  }
+  
+  .carousel-container {
+    margin-bottom: 10px; 
+    position: relative;
+    width: 75%;
+    margin-top: 75px;
+    /* margin: 0 100px; */
+  }
+  
+  .restaurant-list-container {
+    margin-bottom: 25px; 
+  }
+
+  .order-options {
+    display: flex;
+    align-items: center;
+    margin-right: 900px;
+  }
+  
+  .order-options h1 {
+    font-size: 14px;
+    margin: 0 10px;
+  }
+  

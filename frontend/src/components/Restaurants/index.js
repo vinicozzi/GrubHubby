@@ -21,17 +21,25 @@ const RestaurantMenu = () => {
   const { name, address } = restaurant;
 
   return (
-    <div>
-      <h2>{name}</h2>
-      <p>{address}</p>
-      <h3>Menu</h3>
+    <div className="restaurant-menu-container">
+      <h1 className="restaurant-name">{name}</h1>
+      <p className="restaurant-address">{address}</p>
+      <h2 className="menu-title">Menu</h2>
+
       {menuItems.length > 0 ? (
-        <ul>
+        <ul className="menu-items">
           {menuItems.map((menuItem) => (
-            <li key={menuItem.id}>
-              <h4>{menuItem.item_name}</h4>
-              <p>Price: {menuItem.item_price}</p>
-              <p>Description: {menuItem.description}</p>
+            <li key={menuItem.id} className="menu-item">
+              <div className="menu-item-details">
+                <h6 className="menu-item-name">{menuItem.item_name}</h6>
+                <p className="menu-item-description">{menuItem.description}</p>
+              </div>
+              <div className="menu-item-image">
+                <img src={menuItem.image} alt={menuItem.item_name} className="menu-item-image-img" />
+              </div>
+              <div className="menu-item-price">
+                <span className="menu-item-price-amount">{menuItem.item_price}</span>
+              </div>
             </li>
           ))}
         </ul>

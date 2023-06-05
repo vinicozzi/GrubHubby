@@ -4,9 +4,12 @@ import LoginFormPage from './components/LoginFormPage';
 import SignUpForm from './components/SignUpForm';
 // import Navigation from './components/Navigation';
 import SplashPage from './components/SplashPage';
-import Restaurants from './components/Restaurant/restaurantList';
+// import Restaurants from './components/Restaurant/restaurantList';
 // import MenuDisplay from './components/Menu/';
+// import RestaurantMenu from './components/Menu/index';
 import RestaurantMenu from './components/Menu/index';
+import MainComponent from './components/MainPage/index';
+// import NavBar from './components/MainNavigation/navigation';
 
 function App() {
   return (
@@ -27,7 +30,7 @@ function App() {
           <MainPage />
       <Route /> */}
       <Route exact path="/restaurants">
-          <Restaurants/>
+          <MainComponent />
       </Route>
       <Route exact path="/restaurants/:id">
           <RestaurantMenu />

@@ -3,6 +3,12 @@ import csrfFetch from './csrf';
 const RECEIVE_MENU_ITEMS = 'menuItems/receiveMenuItems';
 const RECEIVE_MENU_ITEM = 'menuItems/receiveMenuItem';
 
+// const CLEAR_MENU_ITEMS = 'menuItems/clearMenuItems';
+
+// const clearMenuItems = () => ({
+//     type: CLEAR_MENU_ITEMS
+// });
+
 const receiveMenuItems = (menuItems) => ({
   type: RECEIVE_MENU_ITEMS,
   menuItems
@@ -44,11 +50,17 @@ export const fetchMenuItem = (restaurantId) => async (dispatch) => {
 
 const menuItemsReducer = (state = {}, action) => {
   switch (action.type) {
-    case 'restaurants/receiveRestaurant':
+    case 'restaurants/receiveRestaurant': {
+      const { menuItems } = action;
       return {
         ...state,
-        ...action.menuItems,
+        ...menuItems
       };
+    }
+
+    case 'restaurants/receiveRestaurants': {
+        return {};
+    }
     default:
       return state;
   }

@@ -24,7 +24,7 @@ Rails.application.routes.draw do
     resources :users, only: [:create, :update, :show]
     resources :restaurants, only: [:index, :show]
     resource :session, only: [:create, :show, :destroy]
-end
+  end
 
 
 end

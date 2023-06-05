@@ -1,49 +1,91 @@
-.homePageRestaurantList {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  .restaurant-info {
-    width: 300px;
-    margin: 10px;
-    padding: 10px;
-    background-color: #f2f2f2;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  }
-  
-  .restaurant-name {
-    font-size: 20px;
-    font-weight: bold;
-  }
-  
-  .restaurant-address {
-    font-size: 14px;
-    margin-top: 5px;
-  }
-  
-  .restaurant-description {
-    font-size: 14px;
-    margin-top: 5px;
-  }
-  
-  .restaurant-hours {
-    font-size: 14px;
-    margin-top: 5px;
-  }
-  
-  .restaurant-rating {
-    font-size: 14px;
-    margin-top: 5px;
-  }
-  
-  .restaurant-review_count {
-    font-size: 14px;
-    margin-top: 5px;
-  }
-  
-  .restaurant-pricing_rating {
-    font-size: 14px;
-    margin-top: 5px;
-  }
-  
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.restaurant-index-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.restaurant-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  border: 1px solid rgba(67, 41, 163, .08);
+  box-shadow: 0 0 0 1px rgba(67, 41, 163, .08), 0 1px 5px 0 rgba(67, 41, 163, .08);
+}
+
+.restaurant-card-image {
+  flex: 0 0 auto;
+  margin-right: 10px;
+}
+
+.restaurant-card-image img {
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+}
+
+.restaurant-card-details {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+
+.restaurant-card-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.restaurant-card-description {
+  margin-bottom: 10px;
+}
+
+.restaurant-card-badge {
+  display: inline-block;
+  margin-right: 5px;
+  padding: 4px 8px;
+  background-color: #f0f0f0;
+  color: #333;
+  font-size: 12px;
+  border-radius: 4px;
+}
+
+.restaurant-card-cuisine {
+  font-size: 14px;
+  color: #777;
+}
+
+.restaurant-card-rating {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.restaurant-card-starred-rating {
+  font-size: 16px;
+  font-weight: bold;
+  margin-right: 5px;
+  color: #ffcc00;
+}
+
+.restaurant-card-rating-text {
+  font-size: 12px;
+  color: #777;
+}
+
+.restaurant-card-wait-time,
+.restaurant-card-delivery-price {
+  font-size: 14px;
+  color: #777;
+}

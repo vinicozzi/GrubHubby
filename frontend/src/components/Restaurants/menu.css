@@ -21,8 +21,19 @@
     margin-bottom: 10px;
   }
   
+  .menu-items {
+    list-style: none;
+    padding: 0;
+  }
+  
   .menu-item {
     margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .menu-item-details {
+    flex-grow: 1;
   }
   
   .menu-item-name {
@@ -30,13 +41,22 @@
     font-weight: bold;
   }
   
-  .menu-item-price {
-    font-size: 16px;
-    color: #888;
-  }
-  
   .menu-item-description {
     font-size: 14px;
     color: #555;
+  }
+  
+  .menu-item-image {
+    margin-right: 10px;
+  }
+  
+  .menu-item-image-img {
+    width: 115px;
+    height: 123px;
+  }
+  
+  .menu-item-price {
+    font-size: 100px;
+    color: #c10000;
   }
   

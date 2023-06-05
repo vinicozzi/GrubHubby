@@ -39,8 +39,11 @@ const restaurantsReducer = (state = {}, action) => {
     case RECEIVE_RESTAURANTS:
       return { ...state, ...action.restaurants };
     case RECEIVE_RESTAURANT:
+      debugger 
       const { restaurant } = action;
+      debugger
       let newState = {...state}
+      debugger
       newState[restaurant.id] = restaurant
       debugger 
       return newState;

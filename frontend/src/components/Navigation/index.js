@@ -22,7 +22,8 @@ if (sessionUser) {
         <div className="navbar">
         <NavLink to="/login" id="login">Log in</NavLink>
         <NavLink to="/signup" id="signup">Sign up</NavLink>
-        <NavLink to="/restaurants" id="restaurant">Restaurants</NavLink>
+        {/* <NavLink to="/restaurants" id="restaurant">Restaurants</NavLink> */}
+        {/* <NavLink to="/main" id="main">Main</NavLink> */}
         </div>
     )
 
