@@ -62,7 +62,6 @@ ApplicationRecord.transaction do
         item_name: Faker::Food.dish,
         item_price: Faker::Commerce.price(range: 5.0..20.0),
         description: Faker::Lorem.paragraph,
-        # img_url: URI.open("https://grubhubby-seeds.s3.amazonaws.com/grub-images/rest/r#{restaurant.id}/r#{restaurant.id}#{menu_index + 1}.jpg")
       )
 
       puts "Created menu item: #{menu_item.item_name} for restaurant: #{restaurant.name}"
@@ -74,7 +73,7 @@ ApplicationRecord.transaction do
 end
 
   puts "AWS, HERE IT COMES"
-  
+
 Restaurant.all.each_with_index do |restaurant, index|
   restaurant.photo.attach(io: URI.open("https://grubhubby-seeds.s3.amazonaws.com/grub-images/rest/r#{index + 1}.jpg"), filename: "r#{index + 1}.jpg")
 end

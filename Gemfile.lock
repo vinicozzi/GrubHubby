@@ -164,8 +164,6 @@ GEM
       zeitwerk (~> 2.5)
     rake (13.0.6)
     rouge (4.1.1)
-    ruby-vips (2.1.4)
-      ffi (~> 1.12)
     sassc (2.4.0)
       ffi (~> 1.9)
     thor (1.2.2)
@@ -194,7 +192,6 @@ DEPENDENCIES
   pry-rails
   puma (~> 5.0)
   rails (~> 7.0.5)
-  ruby-vips
   sassc
   tzinfo-data
 
