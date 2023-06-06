@@ -6,6 +6,7 @@ import { removeFromCart, clearCart } from '../../store/cart';
 
 const Cart = () => {
   const cartItems = useSelector((state) => state.cart.items);
+  debugger 
   const dispatch = useDispatch();
 
   const handleRemoveItem = (itemId) => {
@@ -20,22 +21,29 @@ const Cart = () => {
 
   debugger 
   return (
-    <div>
-      <h2>Cart</h2>
-      {cartItems.length === 0 ? (
-        <p>Your cart is empty.</p>
-      ) : (
-        <ul>
-          {cartItems.map((item) => (
-            <li key={item.id}>
-              {item.itemName} - {item.itemPrice}
-              <button onClick={() => handleRemoveItem(item.id)}>Remove</button>
-            </li>
-          ))}
-        </ul>
-      )}
+    <div className="cart">
+    <h2>Cart</h2>
+    {cartItems.length === 0 ? (
+      <p>Your cart is empty.</p>
+    ) : (
+      <ul>
+        {cartItems.map((item) => (
+          <li key={item.id}>
+            <span className="item-name">{item.itemName}</span> - {item.itemPrice}
+            <button
+              className="remove-btn"
+              onClick={() => handleRemoveItem(item.id)}
+            >
+              Remove
+            </button>
+          </li>
+        ))}
+      </ul>
+    )}
+    <div className="checkout-btn">
       <button onClick={handleClearCart}>Clear Cart</button>
     </div>
+  </div>
   );
 };
 

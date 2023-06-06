@@ -5,6 +5,7 @@ import { fetchRestaurant } from '../../store/restaurants';
 import Navigation from '../MainNavigation/navigation';
 import { openModal, closeModal } from '../../store/menuItemModal';
 import { addToCart } from '../../store/cart';
+import star from '../../assets/star.png';
 import './menu.css';
 
 const MenuComponent = () => {
@@ -14,6 +15,11 @@ const MenuComponent = () => {
   const menuItems = useSelector(state => state.menuItems);
   const showModal = useSelector((state) => state.modal.showModal);
   const selectedMenuItem = useSelector((state) => state.modal.selectedMenuItem);
+  // const [activeTab, setActiveTab] = useState('about');
+
+  // const handleTabClick = (tab) => {
+  //   setActiveTab(tab);
+  // };
 
   const handleOpenModal = (menuItem) => {
     dispatch(openModal(menuItem));
@@ -24,9 +30,7 @@ const MenuComponent = () => {
   };
 
   const handleAddToCart = (item) => {
-    debugger
     dispatch(addToCart(item));
-    debugger
     dispatch(closeModal());
   };
 
@@ -47,6 +51,21 @@ const MenuComponent = () => {
           <div className="restaurant-details">
             <h1 className="restaurant-name">{restaurant.name}</h1>
             <p className="restaurant-location">{restaurant.address}</p>
+            <div className='rating-info'>
+            <img src={star} alt="Star Rating" className="star"/> 
+            <p className="rating-stars"> {restaurant.rating}</p>
+            <p className="rating-count">({restaurant.reviewCount} Ratings)</p>
+            </div>
+          </div>
+        </div>
+        <div className="tab-container">
+          <div className="tabs">
+            <div className="tab active">About</div>
+            <div className="tab">Reviews</div>
+          </div>
+          <div className="search-bar-rest">
+            <input type="text" placeholder="Search menu items"/>
+            <button>Search</button>
           </div>
         </div>
         <div className="menu-container">
@@ -64,8 +83,8 @@ const MenuComponent = () => {
                 <div className="menu-item-image">
                   <img src={menuItem.photo} alt="Menu Item" />
                 </div>
-                <div className="menu-item-price">
-                  <p>{menuItem.itemPrice}</p>
+                <div className="menu-item-price" >
+                  <p>${menuItem.itemPrice}+</p>
                 </div>
               </div>
             </div>

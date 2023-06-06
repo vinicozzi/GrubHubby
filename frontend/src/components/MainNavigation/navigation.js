@@ -19,6 +19,7 @@ const Navigation = ({ searchedAddress }) => {
       };
   
     return (
+        
         <nav className="navigation">
          <div className="logo">
             <Link to="/">
@@ -29,7 +30,7 @@ const Navigation = ({ searchedAddress }) => {
           <div className="address">
             <span>{address}</span>
           </div>
-      
+        
           <div className="search-bar">
             <input type="text" placeholder="Search for Food!" />
           </div>
@@ -40,14 +41,13 @@ const Navigation = ({ searchedAddress }) => {
             ) : (
             <Link to="/login" id="signup" className="button-link">Sign In</Link>   
             )}
-      
             <img
                 src={cart}
                 className="cart"
                 alt="Shopping Cart"
                 onClick={handleCartClick}
             />
-          </div>
+            </div>
           {isCartVisible && <Cart />} 
         </nav>
       );

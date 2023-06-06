@@ -28,6 +28,7 @@ const RestaurantList = () => {
           <Link to={`/restaurants/${restaurant.id}`} onClick={() => handleRestaurantClick(restaurant.id)}>
             <img src={restaurant.photo} alt={restaurant.name} />
           </Link>
+          {/* <p>{restaurant.name}</p> */}
         </div>
         <div className="restaurant-card-details">
           <h5 className="restaurant-card-title">

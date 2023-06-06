@@ -2,7 +2,7 @@ import React from 'react';
 import CategoriesCarousel from '../Categories/carousel'
 import RestaurantList from '../Restaurant/restaurantList';
 import Navigation from '../MainNavigation/navigation';
-
+// import Cart from '../Cart/index';
 import './main.css'
 
 const MainComponent = () => {

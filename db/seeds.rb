@@ -57,7 +57,7 @@ ApplicationRecord.transaction do
 
     puts "Created restaurant: #{restaurant.name}"
 
-    3.times do |menu_index|
+    6.times do |menu_index|
       menu_item = restaurant.menu_items.create!(
         item_name: Faker::Food.dish,
         item_price: Faker::Commerce.price(range: 5.0..20.0),
