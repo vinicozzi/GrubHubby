@@ -22,6 +22,7 @@ class Restaurant < ApplicationRecord
 
     has_many :menu_items, dependent: :destroy
 
+    has_one_attached :photo 
     # has_many :reviews,
     # primary_key: :id,
     # foreign_key: :restaurant_id,

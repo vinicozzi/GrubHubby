@@ -8,5 +8,6 @@
       json.rating restaurant.rating
       json.review_count restaurant.review_count
       json.pricing_rating restaurant.pricing_rating
+      json.photo restaurant.photo.attached? ? url_for(restaurant.photo) : nil
     end
   end

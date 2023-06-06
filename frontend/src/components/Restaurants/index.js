@@ -31,14 +31,14 @@ const RestaurantMenu = () => {
           {menuItems.map((menuItem) => (
             <li key={menuItem.id} className="menu-item">
               <div className="menu-item-details">
-                <h6 className="menu-item-name">{menuItem.item_name}</h6>
+                <h6 className="menu-item-name">{menuItem.itemName}</h6>
                 <p className="menu-item-description">{menuItem.description}</p>
               </div>
               <div className="menu-item-image">
-                <img src={menuItem.image} alt={menuItem.item_name} className="menu-item-image-img" />
+                <img src={menuItem.image} alt={menuItem.itemName} className="menu-item-image-img" />
               </div>
               <div className="menu-item-price">
-                <span className="menu-item-price-amount">{menuItem.item_price}</span>
+                <span className="menu-item-price-amount">{menuItem.itemPrice}</span>
               </div>
             </li>
           ))}

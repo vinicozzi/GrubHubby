@@ -1,8 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import "./carousel.css"
+import rightarrow from '../../assets/right.png'
+import leftarrow from '../../assets/left.png'
+
 
 const CategoriesCarousel = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
+  // const [scrollPosition, setScrollPosition] = useState(0);
+
 
   const categories = [
     { id: 'national-picks', name: 'National Picks', image: 'national-picks-illustration-v5.svg' },
@@ -38,7 +43,29 @@ const CategoriesCarousel = () => {
     // Perform filtering logic or other actions based on the selected category
   };
 
+  const carouselRef = useRef(null);
+
+  const scrollLeft = () => {
+    if (carouselRef.current) {
+      carouselRef.current.scrollBy({
+        left: -200, // Adjust the scroll distance as needed
+        behavior: "smooth", // Add smooth scrolling effect
+      });
+    }
+  };
+
+  const scrollRight = () => {
+    if (carouselRef.current) {
+      carouselRef.current.scrollBy({
+        left: 200, // Adjust the scroll distance as needed
+        behavior: "smooth", // Add smooth scrolling effect
+      });
+    }
+  };
+
   return (
+    <div>
+    <img className="arrow arrow-left" src={leftarrow} onClick={scrollLeft} ></img>
     <div className="categories-carousel">
       {categories.map((category) => (
         <div
@@ -62,6 +89,8 @@ const CategoriesCarousel = () => {
           </div>
         </div>
       ))}
+    </div>
+    <img className="arrow arrow-right" src={rightarrow} onClick={scrollRight} ></img>
     </div>
   );
 };

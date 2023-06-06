@@ -2,11 +2,13 @@
     font-size: 36px;
     font-weight: bold;
     margin-bottom: 16px;
+    /* margin-left: 200px; */
   }
   
   
   .u-stack-y-0 {
-    margin-top: 0;
+    margin-top: 150px;
+    /* margin-left: 100px; */
   }
 
   .addressInput-textInput {

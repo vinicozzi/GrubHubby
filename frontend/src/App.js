@@ -16,7 +16,6 @@ function App() {
    <>
    {/* <Navigation/> */}
     <Switch>
-    {/* <ConnectedRestaurantList /> */}
     <Route exact path="/">
           <SplashPage />
       </Route>
@@ -26,22 +25,12 @@ function App() {
       <Route path="/signup">
         <SignUpForm />
       </Route>
-      {/* <Route exact path="/main" />
-          <MainPage />
-      <Route /> */}
       <Route exact path="/restaurants">
           <MainComponent />
       </Route>
       <Route exact path="/restaurants/:id">
           <RestaurantMenu />
       </Route>
-      {/* </Route>
-      <Route path="/restaurants">
-        <RestaurantList />
-      </Route>
-      <Route path="/restaurants/:restaurantId/menu/:menuId">
-          <MenuDisplay />
-        </Route> */}
     </Switch>
     </>
   );

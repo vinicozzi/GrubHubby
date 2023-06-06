@@ -5,12 +5,18 @@ import logo from '../../assets/logo.png';
 import './navigation.css';
 import cart from '../../assets/bag.png';
 // import {searchedAddress} from '../SplashPage/index'; 
+import Cart from '../Cart/index'; 
 
 const Navigation = ({ searchedAddress }) => {
     const user = useSelector((state) => state.user); 
     const location = useLocation();
     const searchParams = new URLSearchParams(location.search);
     const address = searchParams.get('address');
+    const [isCartVisible, setIsCartVisible] = React.useState(false);
+
+    const handleCartClick = () => {
+        setIsCartVisible(!isCartVisible);
+      };
   
     return (
         <nav className="navigation">
@@ -35,10 +41,14 @@ const Navigation = ({ searchedAddress }) => {
             <Link to="/login" id="signup" className="button-link">Sign In</Link>   
             )}
       
-            {/* <Link to="/cart"> */}
-              <img src={cart} className="cart" alt="Shopping Cart" />
-            {/* </Link> */}
+            <img
+                src={cart}
+                className="cart"
+                alt="Shopping Cart"
+                onClick={handleCartClick}
+            />
           </div>
+          {isCartVisible && <Cart />} 
         </nav>
       );
       

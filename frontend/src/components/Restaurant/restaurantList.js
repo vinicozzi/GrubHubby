@@ -26,7 +26,7 @@ const RestaurantList = () => {
       <div key={restaurant.id} className="restaurant-card s-card--horizontal u-height--full">
         <div className="restaurant-card-image">
           <Link to={`/restaurants/${restaurant.id}`} onClick={() => handleRestaurantClick(restaurant.id)}>
-            <img src={restaurant.image} alt={restaurant.name} />
+            <img src={restaurant.photo} alt={restaurant.name} />
           </Link>
         </div>
         <div className="restaurant-card-details">

@@ -5,6 +5,7 @@
   margin: 0 -10px;
 }
 
+
 .category {
   flex: 0 0 auto;
   display: flex;
@@ -73,4 +74,28 @@
   .carousel-navigation button:hover {
     color: #ffdfde;
   }
+
+  .arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px; 
+    z-index: 1; 
+    cursor: pointer; 
+    align-items: space-evenly;
+  }
   
+  .arrow img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  
+  .arrow-left {
+    left: -80px; 
+  }
+  
+  .arrow-right {
+    right: -80px; 
+  }

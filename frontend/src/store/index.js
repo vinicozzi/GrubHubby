@@ -3,11 +3,15 @@ import thunk from 'redux-thunk';
 import sessionReducer from './session'
 import restaurantsReducer from './restaurants';
 import menuItemsReducer from './menuItems';
+import modalReducer from './menuItemModal';
+import cartReducer from './cart';
 
 const rootReducer = combineReducers({
         session: sessionReducer,
         restaurants: restaurantsReducer,
-        menuItems: menuItemsReducer
+        menuItems: menuItemsReducer,
+        modal: modalReducer,
+        cart: cartReducer
 })
 
 let enhancer; 

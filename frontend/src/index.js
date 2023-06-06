@@ -18,7 +18,6 @@ if (process.env.NODE_ENV !== "production") {
   window.csrfFetch= csrfFetch;
   window.sessionActions = sessionActions;
   window.restaurantActions = restaurantActions;
-
 } 
 
 const renderApplication = () => {

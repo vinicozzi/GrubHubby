@@ -9,8 +9,6 @@
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #  restaurant_id :integer
-#  img_url       :string
-#  menu_id       :bigint
 #
 class MenuItem < ApplicationRecord
 
@@ -19,5 +17,7 @@ class MenuItem < ApplicationRecord
     validates :restaurant_id, presence: true  
     
     belongs_to :restaurant 
+
+    has_one_attached :photo 
 
 end
