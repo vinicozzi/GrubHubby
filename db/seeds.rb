@@ -8,7 +8,7 @@
 
 require "open-uri"
 
-ApplicationRecord.transaction do 
+
   puts "Destroying tables..."
   User.destroy_all
   MenuItem.destroy_all
@@ -70,7 +70,6 @@ ApplicationRecord.transaction do
 
   puts "Menu, Menu, Menu... AND MORE!"
 
-end
 
   puts "AWS, HERE IT COMES"
 
