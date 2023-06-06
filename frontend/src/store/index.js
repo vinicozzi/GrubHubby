@@ -5,13 +5,15 @@ import restaurantsReducer from './restaurants';
 import menuItemsReducer from './menuItems';
 import modalReducer from './menuItemModal';
 import cartReducer from './cart';
+import reviewsReducer from './reviews';
 
 const rootReducer = combineReducers({
         session: sessionReducer,
         restaurants: restaurantsReducer,
         menuItems: menuItemsReducer,
         modal: modalReducer,
-        cart: cartReducer
+        cart: cartReducer,
+        reviews: reviewsReducer
 })
 
 let enhancer; 

@@ -59,7 +59,7 @@ const menuItemsReducer = (state = {}, action) => {
     }
 
     case 'restaurants/receiveRestaurants': {
-        return {};
+        return {}
     }
     default:
       return state;

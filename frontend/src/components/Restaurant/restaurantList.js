@@ -6,9 +6,8 @@ import "./RestaurantList.css";
 
 const RestaurantList = () => {
   const dispatch = useDispatch();
-  const restaurants = useSelector((state) =>
-    restaurantActions.getRestaurants(state)
-  );
+  const restaurants = useSelector(state => state.restaurants.allRestaurants);
+  
 
   useEffect(() => {
     dispatch(restaurantActions.fetchRestaurants());
@@ -22,7 +21,7 @@ const RestaurantList = () => {
     <div className="main-container">
   <div className="restaurant-index-container">
     {/* Restaurant list */}
-    {restaurants.map((restaurant) => (
+    {Object.values(restaurants).map((restaurant) => (
       <div key={restaurant.id} className="restaurant-card s-card--horizontal u-height--full">
         <div className="restaurant-card-image">
           <Link to={`/restaurants/${restaurant.id}`} onClick={() => handleRestaurantClick(restaurant.id)}>
@@ -43,10 +42,10 @@ const RestaurantList = () => {
           </div>
           <div className="restaurant-card-rating">
             <span className="restaurant-card-starred-rating">{restaurant.rating}</span>
-            <span className="restaurant-card-rating-text">ratings</span>
+            <span className="restaurant-card-rating-text">{restaurant.reviewCount} ratings</span>
           </div>
-          <div className="restaurant-card-wait-time">{restaurant.waitTime} min</div>
-          <div className="restaurant-card-delivery-price">${restaurant.deliveryPrice} delivery</div>
+          <div className="restaurant-card-wait-time">{restaurant.waitTime}15-25 min</div>
+          <div className="restaurant-card-delivery-price">$2.99{restaurant.deliveryPrice} delivery</div>
         </div>
       </div>
     ))}

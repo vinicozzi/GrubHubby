@@ -43,7 +43,7 @@ const Navigation = ({ searchedAddress }) => {
             )}
             <img
                 src={cart}
-                className="cart"
+                className="cart-nav"
                 alt="Shopping Cart"
                 onClick={handleCartClick}
             />

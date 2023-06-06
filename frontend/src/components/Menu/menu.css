@@ -1,3 +1,8 @@
+/* .main-container {
+  margin-bottom: 200px;
+}
+ */
+
 .container {
   display: flex;
   flex-direction: column;
@@ -248,6 +253,8 @@
   
   .tab.active {
     font-weight: bold;
+    max-height: 200px; 
+    overflow-y: auto;
   }
   
   .search-bar-rest {

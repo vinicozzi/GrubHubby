@@ -92,16 +92,18 @@
     color: #006aff;
   }
   
-  .user-actions .cart {
+  .user-actions img {
     width: 40px;
     height: 40px;
     cursor: pointer;
     margin-left: 10px;
-  }
+  } 
 
-  .user-actions .cart:hover {
+  .user-actions img:hover {
     opacity: 0.8;
-  }
+  } 
+
+  
 
   
   

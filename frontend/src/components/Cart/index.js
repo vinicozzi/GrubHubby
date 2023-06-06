@@ -3,26 +3,22 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeFromCart, clearCart } from '../../store/cart';
+import './cart.css';
 
 const Cart = () => {
   const cartItems = useSelector((state) => state.cart.items);
-  debugger 
   const dispatch = useDispatch();
 
   const handleRemoveItem = (itemId) => {
-    debugger 
     dispatch(removeFromCart(itemId));
   };
 
   const handleClearCart = () => {
-    debugger 
     dispatch(clearCart());
   };
 
-  debugger 
   return (
     <div className="cart">
-    <h2>Cart</h2>
     {cartItems.length === 0 ? (
       <p>Your cart is empty.</p>
     ) : (

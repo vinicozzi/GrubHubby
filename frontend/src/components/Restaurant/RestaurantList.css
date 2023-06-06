@@ -85,11 +85,13 @@
 
 .restaurant-card-rating-text {
   font-size: 12px;
-  color: #777;
+  color: #1c1c1c;
+  font-weight: bold;
 }
 
 .restaurant-card-wait-time,
 .restaurant-card-delivery-price {
   font-size: 14px;
-  color: #777;
+  color: #000000;
+  font-weight: bold;
 }

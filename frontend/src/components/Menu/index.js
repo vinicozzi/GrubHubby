@@ -1,25 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchRestaurant } from '../../store/restaurants';
 import Navigation from '../MainNavigation/navigation';
 import { openModal, closeModal } from '../../store/menuItemModal';
 import { addToCart } from '../../store/cart';
 import star from '../../assets/star.png';
 import './menu.css';
+import RestaurantInfo from '../Info/index';
+// import ReviewComponent from '../Review/index';
+import Footer from '../Footer/index';
+import { fetchRestaurants, fetchRestaurant } from '../../store/restaurants';
+
 
 const MenuComponent = () => {
   const { id: restaurantId } = useParams();
   const dispatch = useDispatch();
-  const restaurant = useSelector(state => state.restaurants[restaurantId]);
+  const restaurant = useSelector(state => state.restaurants.currentRestaurant);
   const menuItems = useSelector(state => state.menuItems);
   const showModal = useSelector((state) => state.modal.showModal);
   const selectedMenuItem = useSelector((state) => state.modal.selectedMenuItem);
-  // const [activeTab, setActiveTab] = useState('about');
+  const [showInfo, setShowInfo] = useState(false);
+  const allRestaurants = useSelector(state => state.restaurants.allRestaurants);
 
-  // const handleTabClick = (tab) => {
-  //   setActiveTab(tab);
-  // };
+  debugger 
+
+  // const [showReviews, setShowReviews] = useState(false);
 
   const handleOpenModal = (menuItem) => {
     dispatch(openModal(menuItem));
@@ -34,10 +39,27 @@ const MenuComponent = () => {
     dispatch(closeModal());
   };
 
+  const handleAboutClick = () => {
+    setShowInfo(!showInfo);
+  };
+
+  // const handleToggleReviews = () => {
+  //   setShowReviews(!showReviews);
+  // };  
+
   useEffect(() => {
     dispatch(fetchRestaurant(restaurantId));
   }, [dispatch, restaurantId]);
 
+  // useEffect(() => {
+  //   dispatch(fetchRestaurants());
+  // }, [dispatch]);
+
+  const otherRestaurants = Object.values(allRestaurants).filter(
+    rest => rest.id !== restaurantId
+  );
+
+  
   if (!restaurant || !menuItems) {
     return <div className="loading">Loading...</div>;
   }
@@ -55,14 +77,24 @@ const MenuComponent = () => {
             <img src={star} alt="Star Rating" className="star"/> 
             <p className="rating-stars"> {restaurant.rating}</p>
             <p className="rating-count">({restaurant.reviewCount} Ratings)</p>
-            </div>
           </div>
         </div>
+      </div>
+        
         <div className="tab-container">
-          <div className="tabs">
-            <div className="tab active">About</div>
-            <div className="tab">Reviews</div>
-          </div>
+            <div className="tabs">
+              <div className={`tab ${showInfo ? 'active' : ''}`} onClick={handleAboutClick}>About</div>
+              {showInfo && <RestaurantInfo
+                  address={restaurant.address}
+                  hours={restaurant.hours}
+                  priceRange={restaurant.priceRating}
+                  phoneNumber={restaurant.phoneNumber}
+                  categories={restaurant.categories} 
+                  description={restaurant.description}
+               />}
+              {/* <div className={`tab ${showReviews ? 'active' : ''}`} onClick={handleToggleReviews}>Reviews</div>
+              {showReviews && <ReviewComponent restaurantId={restaurantId} />} */}
+            </div>
           <div className="search-bar-rest">
             <input type="text" placeholder="Search menu items"/>
             <button>Search</button>
@@ -91,6 +123,7 @@ const MenuComponent = () => {
           ))}
         </div>
       </div>
+      <Footer restaurants={otherRestaurants} />
       {showModal && (
           <div className="modal">
             <div className="modal-content">

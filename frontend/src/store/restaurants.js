@@ -34,22 +34,26 @@ export const fetchRestaurant = (restaurantId) => async (dispatch) => {
   return response;
 };
 
-const restaurantsReducer = (state = {}, action) => {
+const initialState = {
+  allRestaurants: [],
+  currentRestaurant: null,
+};
+
+const restaurantsReducer = (state = initialState, action) => {
   switch (action.type) {
     case RECEIVE_RESTAURANTS:
-      return { ...state, ...action.restaurants };
+      return { ...state, allRestaurants: action.restaurants };
     case RECEIVE_RESTAURANT:
-      debugger 
-      const { restaurant } = action;
-      debugger
-      let newState = {...state}
-      debugger
-      newState[restaurant.id] = restaurant
-      debugger 
-      return newState;
+      return { ...state, currentRestaurant: action.restaurant };
+      // const { restaurant } = action;
+      // let newState = {...state}
+      // newState[restaurant.id] = restaurant
+      // return newState;
     default:
       return state;
   }
 };
+
+
 
 export default restaurantsReducer;

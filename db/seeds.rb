@@ -74,6 +74,7 @@ ApplicationRecord.transaction do
 end
 
   puts "AWS, HERE IT COMES"
+  
 Restaurant.all.each_with_index do |restaurant, index|
   restaurant.photo.attach(io: URI.open("https://grubhubby-seeds.s3.amazonaws.com/grub-images/rest/r#{index + 1}.jpg"), filename: "r#{index + 1}.jpg")
 end
