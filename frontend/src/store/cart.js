@@ -20,7 +20,6 @@ export const clearCart = () => ({
   type: CLEAR_CART
 });
 
-// Initial State
 const initialState = {
   items: []
 };
