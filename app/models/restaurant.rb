@@ -24,7 +24,7 @@ class Restaurant < ApplicationRecord
 
     has_many :reviews, dependent: :destroy
 
-    has_one_attached :photo 
+    has_one_attached :photo, dependent: :destroy
     # has_many :reviews,
     # primary_key: :id,
     # foreign_key: :restaurant_id,
