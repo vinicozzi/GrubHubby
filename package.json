@@ -2,5 +2,30 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.4.0",
     "bootstrap": "^5.3.0"
-  }
+  },
+  "name": "grubhubby",
+  "description": "This README would normally document whatever steps are necessary to get the application up and running.",
+  "version": "1.0.0",
+  "directories": {
+    "lib": "lib"
+  },
+
+  "engines": {
+    "node": "16.19.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "build": "npm install --prefix frontend && npm run build --prefix frontend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vinicozzi/GrubHubby.git"
+  },
+  "keywords": [],
+  "author": "Vincent",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vinicozzi/GrubHubby/issues"
+  },
+  "homepage": "https://github.com/vinicozzi/GrubHubby#readme"
 }

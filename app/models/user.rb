@@ -50,13 +50,12 @@ class User < ApplicationRecord
     
         # def password=(password)
         #     @password = password
-        #     debugger 
+    
         #     self.password_digest = BCrypt::Password.create(password)
         # end
         
         # def is_password?(password)
         #     BCrypt::Password.new(self.password_digest).is_password?(password)
-        #     debugger
         # end
 
         def reset_session_token!
@@ -67,13 +66,9 @@ class User < ApplicationRecord
             #   else
             #     Rails.logger.error(errors.full_messages)
             #   end
-            # debugger 
             # self.session_token = SecureRandom::urlsafe_base64
-            # debugger 
             # self.save!
-            # debugger 
             # return self.session_token
-            # debugger 
             self.update!(session_token: generate_unique_session_token)
             self.session_token
         end

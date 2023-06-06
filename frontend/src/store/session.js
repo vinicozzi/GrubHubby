@@ -37,25 +37,19 @@ const removeCurrentUser = (user) => ({
   }
 
   export const signup = (user) => async (dispatch) => {
-    console.log("Starting signup...");
     const { firstName, lastName, address, email, phoneNumber, password } = user;
-    console.log("User data:", { firstName, lastName, address, email, phoneNumber, password });
     
     try {
       const response = await csrfFetch("api/users", {
         method: "POST",
         body: JSON.stringify({ user }),
       });
-      console.log("Signup API response:", response);
   
       const data = await response.json();
-      console.log("Signup API data:", data);
   
       storeCurrentUser(data.user);
-      console.log("Current user stored:", data.user);
   
       dispatch(setCurrentUser(data.user));
-      console.log("Current user set in Redux state.");
   
       return response;
     } catch (error) {
@@ -65,25 +59,19 @@ const removeCurrentUser = (user) => ({
   };
   
   export const login = ({ credential, password }) => async (dispatch) => {
-    console.log("Starting login...");
   
-    console.log("Login credentials:", { credential, password });
   
     try {
       const response = await csrfFetch("/api/session", {
         method: "POST",
         body: JSON.stringify({ credential, password }),
       });
-      console.log("Login API response:", response);
   
       const data = await response.json();
-      console.log("Login API data:", data);
   
       storeCurrentUser(data.user);
-      console.log("Current user stored:", data.user);
   
       dispatch(setCurrentUser(data.user));
-      console.log("Current user set in Redux state.");
   
       return response;
     } catch (error) {

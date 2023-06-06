@@ -5,7 +5,6 @@ import './footer.css';
 const Footer = ({restaurants}) => {
 
   const randomRestaurants = restaurants.sort(() => Math.random() - Math.random()).slice(0, 3);
-  debugger 
   return (
   <div className="container-down">
       <h3>Other Restaurants In Your Area</h3>

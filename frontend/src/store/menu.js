@@ -13,9 +13,7 @@ export const getMenu = (state) => {
 
 export const fetchMenu = (restaurantId) => async (dispatch) => {
   const response = await csrfFetch(`/api/restaurants/${restaurantId}/menus`);
-  debugger 
   const menu = await response.json();
-  debugger
   dispatch(receiveMenu(menu));
   return response;
 };

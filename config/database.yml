@@ -81,6 +81,4 @@ test:
 #
 production:
   <<: *default
-  database: GrubHubby_production
-  username: GrubHubby
-  password: <%= ENV["GRUBHUBBY_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>

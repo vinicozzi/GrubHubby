@@ -22,7 +22,6 @@ const MenuComponent = () => {
   const [showInfo, setShowInfo] = useState(false);
   const allRestaurants = useSelector(state => state.restaurants.allRestaurants);
 
-  debugger 
 
   // const [showReviews, setShowReviews] = useState(false);
 
