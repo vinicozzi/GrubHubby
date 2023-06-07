@@ -148,6 +148,7 @@ menu_item_photos = []
   url = "https://grubhubby-seeds.s3.amazonaws.com/menu-images/m#{index + 1}.jpg"
   filename = "m#{index + 1}.jpg"
   menu_item_photos << { io: URI.open(url), filename: filename }
+  puts menu_item_photos
 end
 
 MenuItem.all.each_with_index do |menu_item, index|
