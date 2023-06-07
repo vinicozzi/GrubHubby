@@ -9,7 +9,7 @@ import SplashPage from './components/SplashPage';
 // import RestaurantMenu from './components/Menu/index';
 import RestaurantMenu from './components/Menu/index';
 import MainComponent from './components/MainPage/index';
-import CheckoutComponent from './components/Checkout';
+// import CheckoutComponent from './components/Checkout';
 // import NavBar from './components/MainNavigation/navigation';
 
 function App() {
@@ -32,7 +32,7 @@ function App() {
       <Route exact path="/restaurants/:id">
           <RestaurantMenu />
       </Route>
-      <Route path="/checkout" component={CheckoutComponent} />
+      {/* <Route path="/checkout" component={CheckoutComponent} /> */}
     </Switch>
     </>
   );
