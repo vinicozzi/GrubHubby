@@ -10,13 +10,13 @@ require "open-uri"
 
 ApplicationRecord.transaction do
 puts "Destroying tables..."
-User.destroy_all
 MenuItem.destroy_all
+User.destroy_all
 Restaurant.destroy_all
 
 puts "Resetting primary keys..."
-ActiveRecord::Base.connection.reset_pk_sequence!('users')
 ActiveRecord::Base.connection.reset_pk_sequence!('menu_items')
+ActiveRecord::Base.connection.reset_pk_sequence!('users')
 ActiveRecord::Base.connection.reset_pk_sequence!('restaurants')
 
 puts "Creating users..."
@@ -133,6 +133,7 @@ end
   puts "AWS, HERE IT COMES"
 
 Restaurant.all.each_with_index do |restaurant, index|
+  puts "Restaurant #{restaurant}"
   restaurant.photo.attach(io: URI.open("https://grubhubby-seeds.s3.amazonaws.com/grub-images/rest/r#{index + 1}.jpg"), filename: "r#{index}.jpg")
 end
 
@@ -143,14 +144,16 @@ end
 
 menu_item_photos = []
 
-60.times do |index|
+30.times do |index|
   url = "https://grubhubby-seeds.s3.amazonaws.com/menu-images/m#{index + 1}.jpg"
   filename = "m#{index + 1}.jpg"
   menu_item_photos << { io: URI.open(url), filename: filename }
 end
 
 MenuItem.all.each_with_index do |menu_item, index|
+  puts "photo attach #{menu_item}"
   menu_item.photo.attach(menu_item_photos[index])
+  puts "photo complete"
 end
 
 

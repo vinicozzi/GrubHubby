@@ -44,11 +44,10 @@ const restaurantsReducer = (state = initialState, action) => {
     case RECEIVE_RESTAURANTS:
       return { ...state, allRestaurants: action.restaurants };
     case RECEIVE_RESTAURANT:
-      return { ...state, currentRestaurant: action.restaurant };
-      // const { restaurant } = action;
-      // let newState = {...state}
-      // newState[restaurant.id] = restaurant
-      // return newState;
+      const { restaurant } = action;
+      let newState = {...state, currentRestaurant: action.restaurant}
+      newState[restaurant.id] = restaurant
+      return newState;
     default:
       return state;
   }
