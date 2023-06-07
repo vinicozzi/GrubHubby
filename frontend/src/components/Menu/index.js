@@ -82,8 +82,9 @@ const MenuComponent = () => {
         
         <div className="tab-container">
             <div className="tabs">
-              <div className={`tab ${showInfo ? 'active' : ''}`} onClick={handleAboutClick}>About</div>
-              {showInfo && <RestaurantInfo
+              {/* <div className={`tab ${showInfo ? 'active' : ''}`} onClick={handleAboutClick}>Info</div>
+              {showInfo &&  */}
+              {<RestaurantInfo
                   address={restaurant.address}
                   hours={restaurant.hours}
                   priceRange={restaurant.priceRating}
