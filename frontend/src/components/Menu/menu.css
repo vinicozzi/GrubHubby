@@ -35,13 +35,13 @@
   border-radius: 40px;
 }
 
-.container img {
+/* .container img {
   width: 80%;
   height: 100%;
   margin-left: 135px;
   object-fit: cover;
   margin: 0 200 -200px;
-}
+} */
 
 .restaurant-details {
   position: relative;
