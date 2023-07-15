@@ -2,9 +2,6 @@ import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import yum from '../../assets/yum.jpeg';
 import './SplashPage.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import '@fortawesome/fontawesome-free/css/all.min.css';
-import MainNavigation from '../MainNavigation/navigation';
 import Navigation from '../Navigation/index';
 
 const SplashPage = () => {
@@ -22,56 +19,44 @@ const SplashPage = () => {
     setSearchedAddress(address);
   };
 
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      handleSearch();
+    }
+  };
+
+
   return (
-    <> 
-    <section className="vh-100">
-      <div className="container-fluid">
-        <div className="row">
-          <div className="col-sm-6 px-0 d-none d-sm-block">
-            <img src={yum} alt="splash_photo" className="w-100 vh-100" style={{ objectFit: 'cover', objectPosition: 'left' }} />
+    <>
+      <section className="splash-section">
+        <div className="splash-container">
+          <div className="splash-row">
+            <img src={yum} alt="splash_photo" className="splash-image" />
           </div>
-          <div className="col-sm-6 text-black">
-            <div className="px-5 ms-xl-4">
-            </div>
-            {/* <Navigation searchedAddress={searchedAddress} /> */}
-            <div className="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
-              <div style={{ width: '23rem' }}>
-                <h1 className="supermassive-heading u-stack-y-0" data-testid="hero-header">Get food delivery and more</h1>
-                <div className="form-outline mb-4">
-                  <input
-                    aria-label="Search Address"
-                    type="search"
-                    className="addressInput-textInput s-form-control input-overflow u-line address-input--fullscreenAutocomplete"
-                    autoComplete="off"
-                    spellCheck="false"
-                    placeholder="Enter street address or zip code"
-                    required
-                    name="searchTerm"
-                    data-testid="address-input"
-                    autoCapitalize="off"
-                    autoCorrect="off"
-                    onChange={handleChange}
-                  />
-                </div>
-                <div className="pt-1 mb-4">
-                  <svg className="cb-icon cb-icon-svg cb-icon--sm" aria-hidden="true">
-                    <use xlinkHref="#compass" />
-                  </svg>
-                  <button
-                    className="s-btn s-btn-primary s-btn--block addressInput-submitBtn s-btn--large"
-                    data-testid="start-order-search-btn"
-                    tabIndex="0"
-                    onClick={handleSearch}
-                  >
-                    Search Nearby
-                  </button>
-                </div>
+          <div className="splash-mid">
+            <div className="search-form">
+              <h1 className="splash-desc">Get Food Delivery and More!</h1>
+              <div className="splash-form">
+                <input
+                  type="text"
+                  className="address-form"
+                  placeholder="Enter street address or zip code"
+                  value={searchedAddress}
+                  onChange={handleChange}
+                  onKeyDown={handleKeyDown}
+                />
+                <button className="search-splash-button" onClick={handleSearch}>
+                  Search Nearby
+                </button>
+              </div>
+              <div className="login-link">
+                <Link to="/login">Sign in</Link>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+      <Navigation searchedAddress={searchedAddress} />
     </>
   );
 };

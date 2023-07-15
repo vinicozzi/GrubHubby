@@ -1,78 +1,97 @@
-.supermassive-heading {
-    font-size: 36px;
-    font-weight: bold;
-    margin-bottom: 16px;
-    /* margin-left: 200px; */
-  }
-  
-  
-  .u-stack-y-0 {
-    margin-top: 150px;
-    /* margin-left: 100px; */
-  }
+/* Add the following CSS to your stylesheet */
 
-  .addressInput-textInput {
-    width: 100%;
-    padding: 12px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
 
-  .addressInput-submitBtn {
-    width: 100%;
-    padding: 12px;
-    font-size: 18px;
-    background-color: #f44336;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .addressInput-submitBtn:hover {
-    background-color: #d32f2f;
-  }
-  
-  .addressInput-submitBtn:focus {
-    outline: none;
-  }
-  
-/* Nearby Search Button */
-.btn-info {
-    background-color: #f44336;
-    color: #fff;
-    padding: 12px;
-    font-size: 18px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .btn-info:hover {
-    background-color: #d32f2f;
-  }
-  
-  .btn-info:focus {
-    outline: none;
-  }
+.splash-section {
+  display: flex;
+  height: 100vh;
+  position: fixed;
+  width: 100%;
 
-  .cb-icon {
-    width: 24px;
-    height: 24px;
-    fill: currentColor;
-    vertical-align: middle;
-    margin-right: 8px;
-  }
-  
-  .image-container {
-    background-image: url('../../assets/salad.jpg');
-    background-size: cover;
-    background-position: right;
-  }
-  
-  
-  
-  
-    
+}
+
+.splash-container {
+  flex: 1;
+  display: flex;
+}
+
+.splash-row {
+  position: relative;
+  right: 10px;
+  bottom: 60px;
+}
+
+.splash-image {
+  width: 120%;
+  height: 110%;
+  object-fit: cover;
+}
+
+.splash-mid {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-form {
+  text-align: center;
+  margin-bottom: 150px;
+  margin-left: 100px;
+}
+
+.splash-desc {
+  margin-bottom: 1rem;
+  font-size: 50px;
+}
+
+.splash-form {
+  margin-bottom: 1rem;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.address-form {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 16px;
+  margin-right: 1rem;
+  border-radius: 50px;
+  color: rgba(0, 0, 0, 0.7); /* Greyer and more transparent text */
+  background-color: rgba(255, 255, 255, 0.5); /* More transparent background */
+  border: 1px solid rgba(0, 0, 0, 0.1); /* More transparent border */
+  /* position: absolute; */
+  /* margin-right: 20px; */
+}
+
+.search-splash-button {
+  background-color: #ff0000;
+  color: #ffffff;
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 15px;
+  /* width: 10px; */
+  white-space: nowrap;
+}
+
+.search-splash-button:hover {
+  background-color: #b20707;
+}
+
+.login-link {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-right: 100px;
+  font-size: 30px;
+  /* margin: 1rem; */
+}
+
+.login-link a {
+  text-decoration: none;
+  color: #ff0000; /* Customize the color */
+}
+
