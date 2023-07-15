@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import yum from '../../assets/yum.jpeg';
 import './SplashPage.css';
-import MainNavigation from '../MainNavigation/navigation';
 import Navigation from '../Navigation/index';
 
 const SplashPage = () => {
@@ -20,60 +19,45 @@ const SplashPage = () => {
     setSearchedAddress(address);
   };
 
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      handleSearch();
+    }
+  };
+
+
   return (
     <>
-    <section className="custom-section">
-      <div className="custom-container">
-        <div className="custom-row">
-          <div className="custom-col custom-col-img">
-            <img src={yum} alt="splash_photo" className="custom-img" />
+      <section className="splash-section">
+        <div className="splash-container">
+          <div className="splash-row">
+            <img src={yum} alt="splash_photo" className="splash-image" />
           </div>
-          <div className="custom-col custom-col-text">
-            <div className="custom-content">
-              {/* <Navigation searchedAddress={searchedAddress} /> */}
-              <div className="custom-flex">
-                <div className="custom-input-wrapper">
-                  <h1 className="custom-heading" data-testid="hero-header">
-                    Get food delivery and more
-                  </h1>
-                  <div className="custom-input-group">
-                    <input
-                      aria-label="Search Address"
-                      type="search"
-                      className="custom-input"
-                      autoComplete="off"
-                      spellCheck="false"
-                      placeholder="Enter street address or zip code"
-                      required
-                      name="searchTerm"
-                      data-testid="address-input"
-                      autoCapitalize="off"
-                      autoCorrect="off"
-                      onChange={handleChange}
-                    />
-                  </div>
-                  <div className="custom-button-group">
-                    <svg className="custom-icon" aria-hidden="true">
-                      <use xlinkHref="#compass" />
-                    </svg>
-                    <button
-                      className="custom-button"
-                      data-testid="start-order-search-btn"
-                      tabIndex="0"
-                      onClick={handleSearch}
-                    >
-                      Search Nearby
-                    </button>
-                  </div>
-                </div>
+          <div className="splash-mid">
+            <div className="search-form">
+              <h1 className="splash-desc">Get Food Delivery and More!</h1>
+              <div className="splash-form">
+                <input
+                  type="text"
+                  className="address-form"
+                  placeholder="Enter street address or zip code"
+                  value={searchedAddress}
+                  onChange={handleChange}
+                  onKeyDown={handleKeyDown}
+                />
+                <button className="search-splash-button" onClick={handleSearch}>
+                  Search Nearby
+                </button>
+              </div>
+              <div className="login-link">
+                <Link to="/login">Sign in</Link>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-  </>
-  
+      </section>
+      <Navigation searchedAddress={searchedAddress} />
+    </>
   );
 };
 
