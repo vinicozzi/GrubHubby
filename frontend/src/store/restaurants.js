@@ -3,10 +3,12 @@ import { fetchMenuItems } from './menuItems';
 
 const RECEIVE_RESTAURANTS = "restaurants/receiveRestaurants";
 const RECEIVE_RESTAURANT = "restaurants/receiveRestaurant";
+const RECEIVE_FILTERED_RESTAURANTS = 'restaurants/receiveFilteredRestaurants';
 
-const receiveRestaurants = (restaurants) => ({
+const receiveRestaurants = (restaurants, category) => ({
   type: RECEIVE_RESTAURANTS,
-  restaurants
+  restaurants,
+  category
 });
 
 const receiveRestaurant = (restaurant, menuItems) => ({
@@ -15,8 +17,14 @@ const receiveRestaurant = (restaurant, menuItems) => ({
   menuItems
 });
 
+const receiveFilteredRestaurants = (restaurants, category) => ({
+  type: RECEIVE_FILTERED_RESTAURANTS,
+  restaurants,
+  category
+})
+
 export const getRestaurants = state => {
-  return Object.values(state.restaurants);
+  return Object.values(state.restaurants.allRestaurants);
 }
 
 export const fetchRestaurants = () => async (dispatch) => {
@@ -34,25 +42,34 @@ export const fetchRestaurant = (restaurantId) => async (dispatch) => {
   return response;
 };
 
+export const fetchFilteredRestaurants = (category) => async (dispatch) => {
+  const res = await csrfFetch(`/api/restaurants/category?category=${category}`);
+  debugger 
+  const restaurants = await res.json();
+  debugger 
+  dispatch(receiveFilteredRestaurants(restaurants, category));
+  return res;
+};
+
 const initialState = {
   allRestaurants: [],
+  filteredRestaurants: [],
   currentRestaurant: null,
+  currentCategory: null
 };
 
 const restaurantsReducer = (state = initialState, action) => {
   switch (action.type) {
     case RECEIVE_RESTAURANTS:
       return { ...state, allRestaurants: action.restaurants };
+    case RECEIVE_FILTERED_RESTAURANTS:
+      return { ...state, filteredRestaurants: action.restaurants , currentCategory: action.category};
     case RECEIVE_RESTAURANT:
       const { restaurant } = action;
-      let newState = {...state, currentRestaurant: action.restaurant}
-      newState[restaurant.id] = restaurant
-      return newState;
+      return { ...state, currentRestaurant: restaurant };
     default:
       return state;
   }
 };
-
-
 
 export default restaurantsReducer;
