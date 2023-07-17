@@ -47,6 +47,7 @@ const RestaurantList = () => {
 
   return (
     <div className="main-container">
+    <h3 className="restaurant-results">{Object.values(restaurants).length} Results</h3>
       <div className="restaurant-index-container">
         {Object.values(restaurants).map((restaurant) => (
           <div key={restaurant.id} className="restaurant-card">

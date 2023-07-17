@@ -39,7 +39,7 @@ const Navigation = ({ searchedAddress }) => {
             {user ? (
               <button>Sign Out</button>
             ) : (
-            <Link to="/login" id="signup" className="button-link">Sign In</Link>   
+            <Link to="/login" id="signup" className="nav-button-link">Sign In</Link>   
             )}
             <img
                 src={cart}

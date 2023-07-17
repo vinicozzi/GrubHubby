@@ -76,3 +76,11 @@
 .restaurant-card-rating .fa-star.checked {
   color: #ffd700;
 }
+
+.restaurant-results {
+  transform: translate(-700px, 0px);
+}
+
+.restaurant-index-container {
+  padding-right: 50px;
+}
