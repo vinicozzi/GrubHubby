@@ -1,5 +1,5 @@
 json.restaurant do 
-  json.extract! @restaurant, :id, :name, :address, :description, :hours, :rating, :review_count, :pricing_rating, :created_at, :updated_at
+  json.extract! @restaurant, :id, :name, :address, :description, :category, :hours, :rating, :review_count, :pricing_rating, :created_at, :updated_at
   json.photo @restaurant.photo.attached? ? url_for(@restaurant.photo) : nil
 end 
 

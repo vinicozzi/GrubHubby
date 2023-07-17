@@ -1,6 +1,8 @@
 .categories-carousel-container {
   position: relative;
   /* overflow: hidden; */
+  width: 130%;
+  right: 130px;
 }
 
 .categories-carousel {
@@ -8,6 +10,7 @@
   padding: 10px;
   margin: 0 -10px;
   overflow-x: auto;
+  /* width: 1500px; */
 }
 
 .category {

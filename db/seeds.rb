@@ -19,6 +19,35 @@ ActiveRecord::Base.connection.reset_pk_sequence!('menu_items')
 ActiveRecord::Base.connection.reset_pk_sequence!('users')
 ActiveRecord::Base.connection.reset_pk_sequence!('restaurants')
 
+categories = [
+  'national-picks',
+  'bagels',
+  'pizza',
+  'coffee-and-tea',
+  'chicken',
+  'asian',
+  'italian',
+  'american',
+  'mexican',
+  'hamburgers',
+  'healthy',
+  'sushi',
+  'fast-food',
+  'dessert',
+  'pasta',
+  'breakfast',
+  'tacos',
+  'salads',
+  'wings',
+  'soup',
+  'noodles',
+  'burrito',
+  'ice-cream',
+  'seafood',
+  'deli',
+  'steak'
+]
+
 puts "Creating users..."
 User.create!(
   first_name: 'Demo',
@@ -43,6 +72,8 @@ end
 
 puts "Done!"
 
+Restaurant.transaction do
+
 10.times do |index|
   restaurant = Restaurant.create!(
     name: Faker::Restaurant.name,
@@ -52,6 +83,7 @@ puts "Done!"
     rating: Faker::Number.decimal(l_digits: 1, r_digits: 1),
     review_count: Faker::Number.between(from: 10, to: 100),
     pricing_rating: Faker::Number.between(from: 1, to: 5),
+    category: categories.sample 
     # img_url: URI.open("https://grubhubby-seeds.s3.amazonaws.com/grub-images/rest/r#{index + 1}.jpg")
   )
 
@@ -65,6 +97,7 @@ puts "Done!"
     )
 
     puts "Created menu item: #{menu_item.item_name} for restaurant: #{restaurant.name}"
+    end
   end
 end
 
@@ -101,6 +134,9 @@ end
 
 puts "Done!"
 
+
+
+
 puts "Creating restaurants again..."
 10.times do |index|
   restaurant = Restaurant.create!(
@@ -111,6 +147,7 @@ puts "Creating restaurants again..."
     rating: Faker::Number.decimal(l_digits: 1, r_digits: 1),
     review_count: Faker::Number.between(from: 10, to: 100),
     pricing_rating: Faker::Number.between(from: 1, to: 5),
+    category: categories.sample
     # img_url: URI.open("https://grubhubby-seeds.s3.amazonaws.com/grub-images/rest/r#{index + 1}.jpg")
   )
 

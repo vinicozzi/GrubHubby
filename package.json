@@ -9,11 +9,9 @@
   "directories": {
     "lib": "lib"
   },
-
   "engines": {
     "node": "16.19.0"
   },
-  "devDependencies": {},
   "scripts": {
     "build": "npm install --prefix frontend && npm run build --prefix frontend"
   },

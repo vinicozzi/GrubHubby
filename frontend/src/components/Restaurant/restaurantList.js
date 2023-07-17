@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as restaurantActions from '../../store/restaurants';
 import { Link } from 'react-router-dom';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 import './RestaurantList.css';
 
 const RestaurantList = () => {
@@ -25,32 +26,43 @@ const RestaurantList = () => {
   const handleRestaurantClick = (restaurantId) => {
     dispatch(restaurantActions.fetchRestaurant(restaurantId));
   };
+
+  const renderRatingStars = (rating) => {
+    const roundedRating = Math.round(rating);
+    const starCount = Math.min(roundedRating, 5);
+  
+    return (
+      <div className="restaurant-card-rating">
+        {[...Array(starCount)].map((_, index) => (
+          <i key={index} className="fas fa-star checked"></i>
+        ))}
+        {[...Array(5 - starCount)].map((_, index) => (
+          <i key={index} className="fas fa-star"></i>
+        ))}
+<span className="restaurant-card-rating-text">{Math.floor(Math.random() * 100)} Ratings</span>
+      </div>
+    );
+  };
   
 
   return (
     <div className="main-container">
       <div className="restaurant-index-container">
-        {/* Restaurant list */}
         {Object.values(restaurants).map((restaurant) => (
-          <div key={restaurant.id} className="restaurant-card s-card--horizontal u-height--full">
+          <div key={restaurant.id} className="restaurant-card">
             <div className="restaurant-card-image">
               <Link to={`/restaurants/${restaurant.id}`} onClick={() => handleRestaurantClick(restaurant.id)}>
                 <img src={restaurant.photo} alt={restaurant.name} />
               </Link>
             </div>
             <div className="restaurant-card-details">
-              <h5 className="restaurant-card-title"></h5>
-              <div className="restaurant-card-description">
-                {restaurant.isFeatured && <span className="restaurant-card-badge">Featured</span>}
-                {restaurant.hasSubscription && <span className="restaurant-card-badge">Subscription</span>}
-                <span className="restaurant-card-cuisine">{restaurant.cuisine}</span>
-              </div>
+              <h5 className="restaurant-card-title">{restaurant.name}</h5>
+              <h6 className="restaurant-card-category">{restaurant.category}</h6>
               <div className="restaurant-card-rating">
-                <span className="restaurant-card-starred-rating">{restaurant.rating}</span>
-                <span className="restaurant-card-rating-text">{restaurant.reviewCount} ratings</span>
+                {renderRatingStars(restaurant.rating)}
               </div>
-              <div className="restaurant-card-wait-time">{restaurant.waitTime}15-25 min</div>
-              <div className="restaurant-card-delivery-price">$2.99{restaurant.deliveryPrice} delivery</div>
+              <div className="restaurant-card-wait-time">15-30 min</div>
+              <div className="restaurant-card-delivery-price">$2.99 Delivery</div>
             </div>
           </div>
         ))}

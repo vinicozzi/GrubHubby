@@ -4,6 +4,7 @@
       json.name restaurant.name
       json.address restaurant.address
       json.description restaurant.description
+      json.category restaurant.category
       json.hours restaurant.hours
       json.rating restaurant.rating
       json.review_count restaurant.review_count

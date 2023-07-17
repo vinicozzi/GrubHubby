@@ -1,97 +1,78 @@
-.main-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.restaurant-index-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
 .restaurant-card {
   display: flex;
-  flex-direction: row;
   align-items: center;
-  width: 100%;
-  margin-bottom: 20px;
-  border-radius: 8px;
-  border: 1px solid rgba(67, 41, 163, .08);
-  box-shadow: 0 0 0 1px rgba(67, 41, 163, .08), 0 1px 5px 0 rgba(67, 41, 163, .08);
+  border-bottom: .1px solid #dedede;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 900px;
+  height: 90px;
 }
 
 .restaurant-card-image {
-  flex: 0 0 auto;
-  margin-right: 10px;
-}
-
-.restaurant-card-image p {
-  font-weight: bold;
-}
-
-.restaurant-card-image img {
-  width: 150px;
+  width: 100px;
   height: 100px;
-  border-radius: 8px;
-}
-
-.restaurant-card-details {
-  flex: 1 1 auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 10px;
-}
-
-
-.restaurant-card-title {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-.restaurant-card-description {
+  margin-right: 10px;
   margin-bottom: 10px;
 }
 
-.restaurant-card-badge {
-  display: inline-block;
-  margin-right: 5px;
-  padding: 4px 8px;
-  background-color: #f0f0f0;
-  color: #333;
-  font-size: 12px;
-  border-radius: 4px;
+.restaurant-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.restaurant-card-cuisine {
-  font-size: 14px;
-  color: #777;
+.restaurant-card-details {
+  flex-grow: 1;
+  /* margin-left: 50px; */
+}
+
+.restaurant-card-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  transform: translate(0px, 20px);
+}
+
+.restaurant-card-category {
+  text-transform: capitalize;
+  margin-bottom: 5px;
+  font-size: 13px;
+  color: grey;
 }
 
 .restaurant-card-rating {
   display: flex;
   align-items: center;
   margin-bottom: 5px;
-}
+  /* margin-left: 350px; */
+  transform: translate(150px, -20px);
 
-.restaurant-card-starred-rating {
-  font-size: 16px;
-  font-weight: bold;
-  margin-right: 5px;
-  color: #ffcc00;
 }
 
 .restaurant-card-rating-text {
-  font-size: 12px;
-  color: #1c1c1c;
-  font-weight: bold;
+  font-style: italic;
+  font-size: 15px;
+  color: #777;
+  transform: translate(-75px, 20px);
 }
 
-.restaurant-card-wait-time,
+.restaurant-card-wait-time {
+  margin-bottom: 5px;
+  margin-left: 550px;
+  transform: translate(-10px,-60px);
+}
+
 .restaurant-card-delivery-price {
-  font-size: 14px;
-  color: #000000;
   font-weight: bold;
+  margin-left: 650px;
+  transform: translate(61px, -85px);
+}
+
+.restaurant-card-rating .fa-star {
+  color: #8f8f8f;
+}
+
+.restaurant-card-rating .fa-star.checked {
+  color: #ffd700;
 }

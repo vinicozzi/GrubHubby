@@ -24,7 +24,6 @@ const MenuComponent = () => {
 
 
   // const [showReviews, setShowReviews] = useState(false);
-
   const handleOpenModal = (menuItem) => {
     dispatch(openModal(menuItem));
   };

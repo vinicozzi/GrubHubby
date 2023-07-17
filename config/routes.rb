@@ -22,7 +22,11 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: {format: :json} do
     resources :users, only: [:create, :update, :show]
-    resources :restaurants, only: [:index, :show]
+    resources :restaurants, only: [:index, :show] do 
+      collection do 
+        get 'category', to: 'restaurants#category'
+      end 
+    end 
     resource :session, only: [:create, :show, :destroy]
   end
 

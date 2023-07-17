@@ -15,10 +15,11 @@
 #  img_url        :string
 #  lat            :float
 #  lng            :float
+#  category       :string
 #
 class Restaurant < ApplicationRecord
 
-    validates :name, :description, :address, :hours, :rating, :review_count, presence: true 
+    validates :name, :description, :address, :category, :hours, :rating, :review_count, presence: true 
 
     has_many :menu_items, dependent: :destroy
 
