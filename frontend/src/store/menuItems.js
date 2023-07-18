@@ -37,33 +37,22 @@ export const fetchMenuItem = (restaurantId) => async (dispatch) => {
   return response;
 };
 
-// const menuItemsReducer = (state = {}, action) => {
-//   switch (action.type) {
-//     case RECEIVE_MENU_ITEMS:
-//       return { ...state, ...action.menuItems };
-//     case RECEIVE_MENU_ITEM:
-//       return { ...state, [action.menuItem.id]: action.menuItem };
-//     default:
-//       return state;
-//   }
-// };
+const initialState = {};
 
-const menuItemsReducer = (state = {}, action) => {
+const menuItemsReducer = (state = initialState, action) => {
   switch (action.type) {
+    case RECEIVE_MENU_ITEMS:
+      return { ...action.menuItems };
+    case RECEIVE_MENU_ITEM:
+      return { ...state, [action.menuItem.id]: action.menuItem };
     case 'restaurants/receiveRestaurant': {
       const { menuItems } = action;
-      return {
-        ...state,
-        ...menuItems
-      };
-    }
-
-    case 'restaurants/receiveRestaurants': {
-        return {}
+      return { ...menuItems };
     }
     default:
       return state;
   }
 };
+
 
 export default menuItemsReducer;

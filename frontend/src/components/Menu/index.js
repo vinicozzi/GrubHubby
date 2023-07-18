@@ -37,9 +37,9 @@ const MenuComponent = () => {
     dispatch(closeModal());
   };
 
-  const handleAboutClick = () => {
-    setShowInfo(!showInfo);
-  };
+  // const handleAboutClick = () => {
+  //   setShowInfo(!showInfo);
+  // };
 
   // const handleToggleReviews = () => {
   //   setShowReviews(!showReviews);
@@ -47,14 +47,12 @@ const MenuComponent = () => {
 
   useEffect(() => {
     dispatch(fetchRestaurant(restaurantId));
+    dispatch(fetchRestaurants());
   }, [dispatch, restaurantId]);
 
-  // useEffect(() => {
-  //   dispatch(fetchRestaurants());
-  // }, [dispatch]);
 
   const otherRestaurants = Object.values(allRestaurants).filter(
-    rest => rest.id !== restaurantId
+    rest => rest.name !== restaurant.name
   );
 
   

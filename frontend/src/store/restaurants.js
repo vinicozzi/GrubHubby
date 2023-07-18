@@ -38,7 +38,11 @@ export const fetchRestaurant = (restaurantId) => async (dispatch) => {
   const response = await csrfFetch(`/api/restaurants/${restaurantId}`);
   const { restaurant, menuItems } = await response.json();
   dispatch(receiveRestaurant(restaurant, menuItems));
-  // dispatch(fetchMenuItems(restaurantId));
+
+  // const allResponse = await csrfFetch('/api/restaurants');
+  // const allRestaurants = await allResponse.json();
+  // dispatch(receiveRestaurants(allRestaurants));
+
   return response;
 };
 
@@ -63,10 +67,10 @@ const restaurantsReducer = (state = initialState, action) => {
     case RECEIVE_RESTAURANTS:
       return { ...state, allRestaurants: action.restaurants };
     case RECEIVE_FILTERED_RESTAURANTS:
-      return { ...state, filteredRestaurants: action.restaurants , currentCategory: action.category};
+      return { ...state, filteredRestaurants: action.restaurants, currentCategory: action.category };
     case RECEIVE_RESTAURANT:
-      const { restaurant } = action;
-      return { ...state, currentRestaurant: restaurant };
+      const { restaurant, menuItems } = action;
+      return { ...state, currentRestaurant: { ...restaurant, menuItems }, allRestaurants: state.allRestaurants };
     default:
       return state;
   }

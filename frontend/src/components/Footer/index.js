@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 import './footer.css';
 
 const Footer = ({ restaurants }) => {
-  const randomRestaurants = restaurants.sort(() => Math.random() - Math.random()).slice(0, 3);
 
+  const randomRestaurants = restaurants.sort(() => Math.random() - Math.random()).slice(0, 3);
+  console.log(restaurants)
 
   const renderRatingStars = (rating) => {
     const roundedRating = Math.round(rating);
