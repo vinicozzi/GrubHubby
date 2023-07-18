@@ -2,4 +2,11 @@
 
 html {
     font-family: 'Barlow Semi Condensed', sans-serif;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+    overflow: -moz-scrollbars-none; /* Old Firefox */
 }
+
+body::-webkit-scrollbar{
+    display: none;
+  }

@@ -4,6 +4,10 @@
     align-items: center;
     margin: 0 100px; 
   }
+.main-container::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
   
   .carousel-container {
     margin-bottom: 10px; 
