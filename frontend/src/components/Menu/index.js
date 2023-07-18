@@ -23,9 +23,6 @@ const MenuComponent = () => {
   const allRestaurants = useSelector(state => state.restaurants.allRestaurants);
   // const [loading, setLoading] = useState(true);
 
-
-
-  // const [showReviews, setShowReviews] = useState(false);
   const handleOpenModal = (menuItem) => {
     dispatch(openModal(menuItem));
   };
@@ -38,14 +35,6 @@ const MenuComponent = () => {
     dispatch(addToCart(item));
     dispatch(closeModal());
   };
-
-  // const handleAboutClick = () => {
-  //   setShowInfo(!showInfo);
-  // };
-
-  // const handleToggleReviews = () => {
-  //   setShowReviews(!showReviews);
-  // };  
 
   useEffect(() => {
     dispatch(fetchRestaurant(restaurantId));
@@ -67,21 +56,20 @@ const MenuComponent = () => {
       <div className="container">
         <div className="restaurant-header">
           <img src={restaurant.photo} className="restaurant-image" alt="Restaurant" />
+          <div className="restaurant-details-container">
           <div className="restaurant-details">
-            <h1 className="restaurant-name">{restaurant.name}</h1>
-            <p className="restaurant-location">{restaurant.address}</p>
-            <div className='rating-info'>
-            <img src={star} alt="Star Rating" className="star"/> 
-            <p className="rating-stars"> {restaurant.rating}</p>
-            <p className="rating-count">({restaurant.reviewCount} Ratings)</p>
+            <div className="restaurant-name">{restaurant.name}</div>
+            <div className="restaurant-location">{restaurant.address}</div>
+            {/* <div className='rating-info'> */}
+            {/* <p className="rating-stars"> {restaurant.rating}</p> */}
+            {/* <p className="rating-count">({restaurant.reviewCount} Ratings)</p> */}
           </div>
-        </div>
+          </div>
+        {/* </div> */}
       </div>
         
         <div className="tab-container">
             <div className="tabs">
-              {/* <div className={`tab ${showInfo ? 'active' : ''}`} onClick={handleAboutClick}>Info</div>
-              {showInfo &&  */}
               {<RestaurantInfo
                   address={restaurant.address}
                   hours={restaurant.hours}
@@ -93,10 +81,10 @@ const MenuComponent = () => {
               {/* <div className={`tab ${showReviews ? 'active' : ''}`} onClick={handleToggleReviews}>Reviews</div>
               {showReviews && <ReviewComponent restaurantId={restaurantId} />} */}
             </div>
-          <div className="search-bar-rest">
+          {/* <div className="search-bar-rest">
             <input type="text" placeholder="Search menu items"/>
             <button>Search</button>
-          </div>
+          </div> */}
         </div>
         <div className="menu-container">
           {Object.values(menuItems).map((menuItem) => (

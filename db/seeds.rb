@@ -181,7 +181,7 @@ end
 
 menu_item_photos = []
 
-30.times do |index|
+60.times do |index|
   url = "https://grubhubby-seeds.s3.amazonaws.com/menu-images/m#{index + 1}.jpg"
   filename = "m#{index + 1}.jpg"
   menu_item_photos << { io: URI.open(url), filename: filename }

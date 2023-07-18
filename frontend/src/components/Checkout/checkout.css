@@ -1,0 +1,47 @@
+.checkout-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .checkout-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .order-summary {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .total-price {
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  .delivery-info {
+    margin-bottom: 20px;
+  }
+  
+  .driver-animation {
+    width: 200px;
+    height: auto;
+  }
+  
+  .checkout-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #f44336;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .checkout-button:hover {
+    background-color: #c62828;
+  }
+
+  
+  

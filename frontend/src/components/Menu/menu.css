@@ -19,11 +19,12 @@
   margin-top: 300px;
   margin-bottom: 100px;
   justify-content: center;
+  /* position: relative; */
 }
 
 .restaurant-image {
   border-radius: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
   width: 100%;
   object-fit: cover;
   object-position: top;
@@ -42,45 +43,52 @@
   object-fit: cover;
   margin: 0 200 -200px;
 }
+.restaurant-details-container {
+  position: absolute;
+  /* width: 60%; */
+  /* transform: translate(-14%, -60%);  */
+  left: 140px;
+  /* top: 0px; */
+  bottom: 430px;
+  /* overflow: auto; */
+  /* display: -webkit-box; */
+  /* -webkit-box-orient: vertical; */
+  /* -webkit-line-clamp: 1;  */
+}
+.restaurant-details { 
+  display: flex;
+  flex-direction: column;
+  /* transform: translate(-540%, -40%);  */
+  /* position: absolute; */
+  /* top: 50%; */
+}
+  .restaurant-name {
+  /* position: fixed; */
+  font-size: 30px;
+   /* font-weight: bold;  */
+  /* transform: translate(-150%, -100%);  */
+  /* margin-bottom: 15px; */
+  white-space: nowrap;
+  overflow: auto;
+  text-overflow: ellipsis;
+} 
 
-.restaurant-details {
+/* .restaurant-details .restaurant-location {
   position: relative;
-  /* top: 20px; */
-  /* right: 20px; */
-  background-color: #fff;
-  padding: 10px;
-  margin-top: 50px;
-  /* margin-right: 200px; */
-  /* transform: translate(-100%, 60%);  */
-  /* justify-content: flex-start; */
-}
-
-.restaurant-details img {
-  width: 20px;
-  height: 22px;
-  margin-bottom: 10px;
-}
-
-.restaurant-name {
-  font-size: 25px;
-  font-weight: bold;
-  margin-bottom: 15px;
-}
-
-.restaurant-location {
   color: #888;
   font-size: 14px;
-}
+  transform: translate(-87%, 60%); 
+} */ 
 
-.restaurant-info {
+/* .restaurant-info {
   font-size: 11px;
   margin-bottom: 25px;
-}
+} */
 
 .rating-info {
   display: flex;
-  justify-content: center;
-  transform: translateX(-50%);
+  /* justify-content: center; */
+  /* transform: translateX(-60%); */
 }
 
 .rating-stars {
@@ -98,7 +106,8 @@
     align-items: flex-end; 
     margin: 0 100px;
     /* padding-bottom: 100px; */
-    /* margin-bottom: 400px; */
+    margin-top: -60px;
+    padding-right: 40px;
 }
 
 .menu-item {
@@ -145,7 +154,7 @@
 }
 
 .menu-item-description {
-  font-size: 10px;
+  font-size: 13px;
   color: #888;
   overflow: hidden;
   position: absolute;
@@ -153,6 +162,7 @@
   left: 50%;
   transform: translateX(-95%);
   margin-top: 50px;
+  /* width: 50%; */
 }
 
   .menu-item-image img {
@@ -171,9 +181,9 @@
 
   .menu-item-price {
     background-color: rgba(0, 0, 0, 0.6);
-    border-radius: 50%;
-    width: 50px;
-    height: 40px;
+    border-radius: 70%;
+    width: 30px;
+    height: 30px;
     color: #fff;
     padding: 4px;
     position: absolute;
@@ -184,8 +194,8 @@
 
   .menu-item-price p {
         justify-content: center;
-        transform: translate(0%, 60%);
-        font-weight: bold;
+        /* transform: translate(0%, 0%); */
+        /* font-weight: bold; */
   }
   .modal {
     display: flex;

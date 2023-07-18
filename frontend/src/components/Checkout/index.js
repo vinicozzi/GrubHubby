@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import './checkout.css'
+import './checkout.css';
 
 const CheckoutComponent = () => {
   const cartItems = useSelector(state => state.cart.items);
@@ -23,26 +23,31 @@ const CheckoutComponent = () => {
   };
 
   return (
-    <div>
-      <h1>Checkout</h1>
+    <div className="checkout-container">
+      <h1 className="checkout-title">Checkout</h1>
 
-      <h2>Order Summary:</h2>
-      <ul>
-        {cartItems.map((item, index) => (
-          <li key={index}>
-            {item.itemName} - ${item.itemPrice}
-          </li>
-        ))}
-      </ul>
+      <div className="order-summary">
+        <h2>Order Summary:</h2>
+        <ul>
+          {cartItems.map((item, index) => (
+            <li key={index}>
+              {item.itemName} - ${item.itemPrice}
+            </li>
+          ))}
+        </ul>
 
-      <p>Total: ${totalPrice}</p>
+        <p className="total-price">Total: ${totalPrice}</p>
+      </div>
 
-      <h2>Delivery TimeFrame:</h2>
-      <p>Estimated delivery time: 30 minutes</p>
+      <div className="delivery-info">
+        <h2>Delivery TimeFrame:</h2>
+        <p>Estimated delivery time: 30 minutes</p>
+      </div>
 
-      <img src="/path/to/driver-animation.gif" alt="Driver Animation" />
+      <img src="/path/to/driver-animation.gif" alt="Driver Animation" className="driver-animation" />
 
-      <button onClick={handleCheckout}>Checkout</button>
+      <button onClick={handleCheckout} className="checkout-button">Checkout</button>
+      
     </div>
   );
 };
