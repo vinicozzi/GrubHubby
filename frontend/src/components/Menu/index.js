@@ -57,8 +57,6 @@ const MenuComponent = () => {
   ? Object.values(allRestaurants).filter(rest => rest.id !== restaurant.id)
   : [];
 
-
-  
   if (!restaurant || !menuItems) {
     return <div className="loading">Loading...</div>;
   }
