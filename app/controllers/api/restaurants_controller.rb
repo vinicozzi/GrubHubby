@@ -14,8 +14,8 @@ class Api::RestaurantsController < ApplicationController
 
     def category
         category = params[:category]
-        restaurants = Restaurant.where(category: category)
-        render json: restaurants
+        @restaurants = Restaurant.where(category: category)
+        render :index 
       end
       
 
@@ -35,9 +35,8 @@ class Api::RestaurantsController < ApplicationController
                 :category,
                 :review_count,
                 :pricing_rating,
-                :img_url,
-                :lat, 
-                :lng
+                :photo,
+                :rating
             )
     end
 

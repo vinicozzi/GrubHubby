@@ -12,9 +12,6 @@
 #  pricing_rating :string
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
-#  img_url        :string
-#  lat            :float
-#  lng            :float
 #  category       :string
 #
 class Restaurant < ApplicationRecord

@@ -48,9 +48,7 @@ export const fetchRestaurant = (restaurantId) => async (dispatch) => {
 
 export const fetchFilteredRestaurants = (category) => async (dispatch) => {
   const res = await csrfFetch(`/api/restaurants/category?category=${category}`);
-  debugger 
   const restaurants = await res.json();
-  debugger 
   dispatch(receiveFilteredRestaurants(restaurants, category));
   return res;
 };

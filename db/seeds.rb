@@ -11,13 +11,13 @@ require "open-uri"
 ApplicationRecord.transaction do
 puts "Destroying tables..."
 MenuItem.destroy_all
-User.destroy_all
 Restaurant.destroy_all
+User.destroy_all
 
 puts "Resetting primary keys..."
 ActiveRecord::Base.connection.reset_pk_sequence!('menu_items')
-ActiveRecord::Base.connection.reset_pk_sequence!('users')
 ActiveRecord::Base.connection.reset_pk_sequence!('restaurants')
+ActiveRecord::Base.connection.reset_pk_sequence!('users')
 
 categories = [
   'national-picks',
@@ -84,7 +84,6 @@ Restaurant.transaction do
     review_count: Faker::Number.between(from: 10, to: 100),
     pricing_rating: Faker::Number.between(from: 1, to: 5),
     category: categories.sample 
-    # img_url: URI.open("https://grubhubby-seeds.s3.amazonaws.com/grub-images/rest/r#{index + 1}.jpg")
   )
 
   puts "Created restaurant: #{restaurant.name}"
@@ -148,7 +147,6 @@ puts "Creating restaurants again..."
     review_count: Faker::Number.between(from: 10, to: 100),
     pricing_rating: Faker::Number.between(from: 1, to: 5),
     category: categories.sample
-    # img_url: URI.open("https://grubhubby-seeds.s3.amazonaws.com/grub-images/rest/r#{index + 1}.jpg")
   )
 
   puts "Created restaurant: #{restaurant.name}"

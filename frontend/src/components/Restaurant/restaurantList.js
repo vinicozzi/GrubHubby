@@ -44,6 +44,7 @@ const RestaurantList = () => {
     );
   };
   
+  console.log(restaurants);
 
   return (
     <div className="main-container">
