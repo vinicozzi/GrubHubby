@@ -19,8 +19,10 @@ const MenuComponent = () => {
   const menuItems = useSelector(state => state.menuItems);
   const showModal = useSelector((state) => state.modal.showModal);
   const selectedMenuItem = useSelector((state) => state.modal.selectedMenuItem);
-  const [showInfo, setShowInfo] = useState(false);
+  // const [showInfo, setShowInfo] = useState(false);
   const allRestaurants = useSelector(state => state.restaurants.allRestaurants);
+  // const [loading, setLoading] = useState(true);
+
 
 
   // const [showReviews, setShowReviews] = useState(false);
@@ -51,9 +53,10 @@ const MenuComponent = () => {
   }, [dispatch, restaurantId]);
 
 
-  const otherRestaurants = Object.values(allRestaurants).filter(
-    rest => rest.name !== restaurant.name
-  );
+  const otherRestaurants = restaurant
+  ? Object.values(allRestaurants).filter(rest => rest.id !== restaurant.id)
+  : [];
+
 
   
   if (!restaurant || !menuItems) {
