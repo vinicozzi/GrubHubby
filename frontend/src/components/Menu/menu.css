@@ -36,13 +36,17 @@
   border-radius: 40px;
 }
 
-.container img {
+ .restaurant-header img {
   width: 80%;
   height: 100%;
   margin-left: 135px;
   object-fit: cover;
+    /* transform: translate(-14%, -60%);  */
   margin: 0 200 -200px;
-}
+ }  
+
+
+
 .restaurant-details-container {
   position: absolute;
   /* width: 60%; */
@@ -169,7 +173,7 @@
     position: absolute;
     top: 50%; 
     left: 45%; 
-    transform: translate(-51%, -50%); 
+    transform: translate(16%, -50%); 
     max-width: 100%;
     max-height: 110%;
     width: 200px;
