@@ -39,13 +39,11 @@
  .restaurant-header img {
   width: 80%;
   height: 100%;
-  margin-left: 135px;
+  /* margin-left: 135px; */
   object-fit: cover;
-    /* transform: translate(-14%, -60%);  */
+    transform: translate(12%, 0%); 
   margin: 0 200 -200px;
  }  
-
-
 
 .restaurant-details-container {
   position: absolute;
