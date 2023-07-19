@@ -1,23 +1,29 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { NavLink, Link, useLocation } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import logo from '../../assets/logo.png';
 import './navigation.css';
 import cart from '../../assets/bag.png';
+import * as sessionActions from "../../store/session";
 // import {searchedAddress} from '../SplashPage/index'; 
 import Cart from '../Cart/index'; 
 
 const Navigation = ({ searchedAddress }) => {
-    const user = useSelector((state) => state.user); 
+    const user = useSelector((state) => state.session.user); 
     const location = useLocation();
     const searchParams = new URLSearchParams(location.search);
     const address = searchParams.get('address');
     const [isCartVisible, setIsCartVisible] = React.useState(false);
+    const dispatch = useDispatch()
 
     const handleCartClick = () => {
         setIsCartVisible(!isCartVisible);
       };
-  
+    
+    const handleLogOut = () => {
+        dispatch(sessionActions.logout())
+    };
+
     return (
         
         <nav className="navigation">
@@ -37,7 +43,7 @@ const Navigation = ({ searchedAddress }) => {
       
           <div className="user-actions">
             {user ? (
-              <button>Sign Out</button>
+              <button className="sign-out-mainnav" onClick={handleLogOut}>Sign Out</button>
             ) : (
             <Link to="/login" id="signup" className="nav-button-link">Sign In</Link>   
             )}

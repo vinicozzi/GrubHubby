@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux';
 import yum from '../../assets/yum.jpeg';
 import './SplashPage.css';
 import Navigation from '../Navigation/index';
+import * as sessionActions from "../../store/session";
 
 const SplashPage = () => {
   const [searchedAddress, setSearchedAddress] = useState("");
   const history = useHistory();
+  const user = useSelector((state) => state.session.user);
+  const dispatch = useDispatch();
 
   const handleSearch = () => {
     if (searchedAddress) {
@@ -24,6 +28,11 @@ const SplashPage = () => {
       handleSearch();
     }
   };
+
+    
+  const handleLogOut = () => {
+    dispatch(sessionActions.logout())
+};
 
 
   return (
@@ -50,7 +59,11 @@ const SplashPage = () => {
                 </button>
               </div>
               <div className="login-link">
-                <Link to="/login">Sign in</Link>
+                {user ? (
+                  <button className="sign-out-mainnav" onClick={handleLogOut}>Sign Out</button>
+                ) : ( 
+                  <Link to="/login">Sign in</Link>
+                )}
               </div>
             </div>
           </div>
