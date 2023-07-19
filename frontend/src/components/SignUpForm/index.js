@@ -53,110 +53,97 @@ function SignUpForm()
 
     return (
         <>
-        <div className="signup-form">
-        <h1>Sign Up </h1>
-        <form onSubmit={handleSubmit}>
-            <ul>
-
-            {errors.map((error, index) => (
-            <li key={index}>{error}</li>
-            ))}
-
-            </ul>
-
-        <label>
-
-            First Name
-            <input
-
-            type='text'
-            value = {firstName}
-            onChange = {(e) => setFirstName(e.target.value)}
-            required
-            />
-            </label>
-
-        <label>
-
-            Last Name
-            <input
-
-            type='text'
-            value = {lastName}
-            onChange = {(e) => setLastName(e.target.value)}
-            required
-            />
-            </label>
-        
-        <label>
-
-            Address
-            <input
-
-            type='text'
-            value = {address}
-            onChange = {(e) => setAddress(e.target.value)}
-            required
-            />
-            </label>
-
-        <label>
-
-        Email
-        <input
-        
-        type='text'
-        value = {email}
-        onChange = {(e) => setEmail(e.target.value)}
-        required
-        />
-        </label>
-
-        <label>
-
-        Phone Number
-        <input
-
-        type="text"
-        value= {phoneNumber}
-        onChange ={(e) => setPhoneNumber(e.target.value)}
-        />
-        </label>
-
-        <label>
-
-        Password
-        <input 
-
-        type="password" 
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-
-        />
-
-        </label>
-
-
-        <label>
-
-        Confirm Password 
-
-        <input
-
-        type="password"
-        value = {confirmPassword}
-        onChange ={(e) => setConfirmPassword(e.target.value)}
-        />
-
-        </label>
-
-        <button type="submit"> Sign Up </button>
-
-        </form>
-        </div>
+          <div className="signup-form">
+            <h1 className="signup-heading">Sign Up</h1>
+            <form onSubmit={handleSubmit}>
+              <ul className="error-list">
+                {errors.map((error, index) => (
+                  <li key={index} className="error-message">{error}</li>
+                ))}
+              </ul>
+      
+              <label htmlFor="firstName">
+                First Name
+                <input
+                  type="text"
+                  id="firstName"
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
+                  required
+                />
+              </label>
+      
+              <label htmlFor="lastName">
+                Last Name
+                <input
+                  type="text"
+                  id="lastName"
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
+                  required
+                />
+              </label>
+      
+              <label htmlFor="address">
+                Address
+                <input
+                  type="text"
+                  id="address"
+                  value={address}
+                  onChange={(e) => setAddress(e.target.value)}
+                  required
+                />
+              </label>
+      
+              <label htmlFor="email">
+                Email
+                <input
+                  type="text"
+                  id="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+              </label>
+      
+              <label htmlFor="phoneNumber">
+                Phone Number
+                <input
+                  type="text"
+                  id="phoneNumber"
+                  value={phoneNumber}
+                  onChange={(e) => setPhoneNumber(e.target.value)}
+                />
+              </label>
+      
+              <label htmlFor="password">
+                Password
+                <input
+                  type="password"
+                  id="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </label>
+      
+              <label htmlFor="confirmPassword">
+                Confirm Password
+                <input
+                  type="password"
+                  id="confirmPassword"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                />
+              </label>
+      
+              <button type="submit" className="signup-button">
+                Sign Up
+              </button>
+            </form>
+          </div>
         </>
-        
-        );
+      );
+      
 }
 
 export default SignUpForm;
