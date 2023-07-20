@@ -4,6 +4,7 @@ import { fetchMenuItems } from './menuItems';
 const RECEIVE_RESTAURANTS = "restaurants/receiveRestaurants";
 const RECEIVE_RESTAURANT = "restaurants/receiveRestaurant";
 const RECEIVE_FILTERED_RESTAURANTS = 'restaurants/receiveFilteredRestaurants';
+const RECEIVE_SEARCHED_RESTAURANT = 'restaurants/receiveSearchedRestaurant';
 
 const receiveRestaurants = (restaurants, category) => ({
   type: RECEIVE_RESTAURANTS,
@@ -21,6 +22,11 @@ const receiveFilteredRestaurants = (restaurants, category) => ({
   type: RECEIVE_FILTERED_RESTAURANTS,
   restaurants,
   category
+})
+
+const receiveSearchedRestaurant = (restaurant) => ({
+  type: RECEIVE_SEARCHED_RESTAURANT,
+  restaurant
 })
 
 export const getRestaurants = state => {
@@ -53,9 +59,17 @@ export const fetchFilteredRestaurants = (category) => async (dispatch) => {
   return res;
 };
 
+export const fetchSearchedRestaurant = (restaurantId) => async (dispatch) => {
+  const res = await csrfFetch(`/api/restaurants/${restaurantId}`);
+  const restaurant  = await res.json();
+  dispatch(receiveSearchedRestaurant(restaurant));
+  return res;
+}
+
 const initialState = {
   allRestaurants: [],
   filteredRestaurants: [],
+  searchedRestaurant: [],
   currentRestaurant: null,
   currentCategory: null
 };
@@ -69,6 +83,8 @@ const restaurantsReducer = (state = initialState, action) => {
     case RECEIVE_RESTAURANT:
       const { restaurant, menuItems } = action;
       return { ...state, currentRestaurant: { ...restaurant, menuItems }, allRestaurants: state.allRestaurants };
+    case RECEIVE_SEARCHED_RESTAURANT:
+      return { ...state, searchedRestaurant: action.restaurant};
     default:
       return state;
   }

@@ -7,6 +7,7 @@ import cart from '../../assets/bag.png';
 import * as sessionActions from "../../store/session";
 // import {searchedAddress} from '../SplashPage/index'; 
 import Cart from '../Cart/index'; 
+import SearchBar from '../SearchBar';
 
 const Navigation = ({ searchedAddress }) => {
     const user = useSelector((state) => state.session.user); 
@@ -38,7 +39,8 @@ const Navigation = ({ searchedAddress }) => {
           </div>
         
           <div className="search-bar">
-            <input type="text" placeholder="Search for Food!" />
+            {/* <input type="text" placeholder="Search for Food!" /> */}
+            <SearchBar/>
           </div>
       
           <div className="user-actions">
