@@ -10,7 +10,7 @@ const RestaurantList = () => {
   const allRestaurants = useSelector((state) => state.restaurants.allRestaurants);
   const filteredRestaurants = useSelector((state) => state.restaurants.filteredRestaurants);
   const currentCategory = useSelector((state) => state.restaurants.currentCategory);
-
+  // restuarants required ? 
   useEffect(() => {
     dispatch(restaurantActions.fetchRestaurants());
   }, [dispatch]);
